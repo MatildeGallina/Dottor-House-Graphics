@@ -1,0 +1,14 @@
+.navbar-inverse {
+    background-color: crimson;
+    border-color: crimson;
+}
+
+#title{
+    margin-top: 100px;
+    color: crimson;
+    align-content: center;
+}
+
+#icon{
+    height: 0.8em;
+}
