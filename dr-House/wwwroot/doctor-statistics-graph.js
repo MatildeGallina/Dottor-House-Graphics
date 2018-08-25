@@ -1,46 +1,12 @@
-function Doctor(name, statistics){
-    this.name = name
-    this.statistics = statistics
-}
+// function Doctor(name, statistics){
+//     this.name = name
+//     this.statistics = statistics
+// }
 
-var dr1 = new Doctor("Mario", [50, 25, 25])
-var dr2 = new Doctor("Luigi", [75, 20, 5])
+// var dr1 = new Doctor("Mario", [50, 25, 25])
+// var dr2 = new Doctor("Luigi", [75, 20, 5])
 
-console.log("dr1: " + dr1)
-console.log("dr1 name: " + dr1.name)
-console.log("dr1 stat: " + dr1.statistics)
-
-var doctors = [dr1, dr2]
-
-
-console.log("doctors" + doctors)
-
-console.log("inizio for")
-for(let d of doctors){
-    console.log("d: " + d)
-    console.log("d: " + d.name)
-    console.log("d: " + d.statistics)
-}
-console.log("fine for")
-
-var drStatistics = []
-console.log("drStatistics iniziale: " + drStatistics)
-for(var dr of doctors){
-    console.log("dr: " + dr)
-    console.log("statistiche dr: " + dr.statistics)
-    drStatistics.push(dr.statistics)
-    console.log("drStatistics: " + drStatistics)
-}
-
-
-
-
-
-
-
-
-
-
+// var doctors = [dr1, dr2]
 
 var myCanvas = document.getElementById("myCanvas");
 myCanvas.width = 300;
@@ -130,7 +96,7 @@ var Barchart = function(options){
             console.log("startX: " + startX)
             console.log("startY: " + startY)
 
-            for(var p of dr.statistics){
+            for(var p of dr.operations){
                 console.log("p: " + p)
                 
                 var barHeight = Math.round( canvasActualHeight * p / maxValue) ;
