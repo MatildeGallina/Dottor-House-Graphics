@@ -38,12 +38,15 @@
             <div for="materialsCanvas" style="display: inline-block; height: 300px;"></div>
             <canvas id="materialsCanvas"></canvas>
             <!-- <legend for="materialsCanvas" style="display: inline-block; width: 100px"></legend> -->
-            <div style="background-color: indigo; width: 400px; height: 300px; display: inline-block">
-
+            <div style="display: inline-block">
+                    <label>Esito operazioni:</label>
+                    <input type="checkbox" id="succ" name="successo" value="successo" checked="checked" onclick="succClicked(event)" />Successo
+                    <input type="checkbox" id="complic" name="complicazioni" value="complicazioni" checked="checked" onclick="complicClicked(event)" />Complicazioni
+                    <input type="checkbox" id="dec" name="decesso" value="decesso" checked="checked" onclick="decClicked(event)" />Decesso
             </div>
         </div>
 
-        <script src="data.js"></script> 
+        <script src="data.js"></script>
         <script src="materials-statistics-graph.js"></script>
     </main>
 </body>
