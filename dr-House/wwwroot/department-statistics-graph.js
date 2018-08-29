@@ -142,15 +142,7 @@ var Piechart = function(options){
  
     }
 }
-function d(dep, op){
-    this.department = dep
-    this.op = op
-}
-var d1 = new d("Cardiologia", [75, 5])
-var d2 = new d("Cardiologia", [20, 2])
-var d3 = new d("Oncologia", [50, 10])
 
-var prova = [d1, d2, d3]
 
 // torta
 var myDougnutChart1 = new Piechart(

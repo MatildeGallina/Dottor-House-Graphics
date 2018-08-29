@@ -37,7 +37,9 @@ function legendItem(name, color, ul){
     li.style.borderLeft = "20px solid " + color;
     li.style.padding = "5px";
     li.textContent = name;
-    ul.append(li);
+    // ul.append(li);
+    console.log("legendItem")
+    return li
 }
 
 var Barchart = function(options){
@@ -70,7 +72,7 @@ var Barchart = function(options){
             this.ctx.save();
             this.ctx.fillStyle = this.options.gridColor;
             this.ctx.font = "bold 10px Arial";
-            this.ctx.fillText(gridValue, 10,gridY - 2);
+            this.ctx.fillText(gridValue, 10, gridY - 2);
             this.ctx.restore();
  
             gridValue+=this.options.gridScale;
@@ -85,7 +87,11 @@ var Barchart = function(options){
         console.log("option.data: " + this.options.data)
         
         for(var dr of this.options.data){
-            
+            var dr_operations = 0
+            for(var o of dr.operations){
+                dr_operations += o
+            }
+
             console.log("[dr]: " + dr)
             console.log("option.data[dr]: " + this.options.data[dr])
 
@@ -96,10 +102,8 @@ var Barchart = function(options){
             console.log("startX: " + startX)
             console.log("startY: " + startY)
 
-            for(var p of dr.operations){
-                console.log("p: " + p)
-                
-                var barHeight = Math.round( canvasActualHeight * p / maxValue) ;
+            for(var o of dr.operations){
+                var barHeight = Math.round( canvasActualHeight * (o / dr_operations)) ;
                 console.log("altezza barra: " + barHeight)
 
                 console.log("indice barra: " + barIndex)
@@ -132,23 +136,31 @@ var Barchart = function(options){
             collIndex ++;
         }
 
+        console.log("legenda:")
         var legend = document.querySelector("legend[for='myCanvas']");
         var ul = document.createElement("ul");
         legend.append(ul);
-        legendItem("% Successi", this.colors[0 % this.colors.length], ul)
-        legendItem("% Complicazioni", this.colors[1 % this.colors.length], ul)
-        legendItem("% Decessi", this.colors[2 % this.colors.length], ul)
+        // legendItem("% Successi", this.colors[0 % this.colors.length], ul)
+        ul.append(legendItem("% Successi", this.colors[0 % this.colors.length], ul));
+        // legendItem("% Complicazioni", this.colors[1 % this.colors.length], ul)
+        ul.append(legendItem("% Complicazioni", this.colors[1 % this.colors.length], ul));
+        // legendItem("% Decessi", this.colors[2 % this.colors.length], ul)
+        ul.append(legendItem("% Decessi", this.colors[2 % this.colors.length], ul));
+        console.log("ssssss")
     }
 }
-
+console.log("ffffff")
 var myBarchart = new Barchart(
     {
         canvas: myCanvas,
         padding: 10,
-        gridScale: 10,
+        gridScale: 5,
         gridColor: "#ccc",
         data: doctors,
         colors: ["green","yellow", "red"]
     }
 );
 myBarchart.draw();
+
+
+console.log("aaaa")
