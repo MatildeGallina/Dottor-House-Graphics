@@ -6,6 +6,17 @@ var successCB = document.getElementById("succ");
 var complicationsCB = document.getElementById("complic");
 var deathCB = document.getElementById("dec");
 
+var yearDiv = document.getElementById("year");
+var p = document.createElement("p");
+yearDiv.append(p);
+var year = 2018
+
+function updateYear(year){
+    p.style.padding = "5px";
+    p.textContent = year;
+}
+updateYear(year)
+
 var filter = ["successo", "complicazioni", "decesso"]
 
 var ctx = myCanvas.getContext("2d");
@@ -28,6 +39,10 @@ function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height, color) 
     ctx.fillRect(upperLeftCornerX, upperLeftCornerY, width, height);
     ctx.restore();
 }
+
+function noData(currentValue) {
+    return currentValue === 0;
+  }
 
 var div = document.querySelector("div[for='materialsCanvas']");
 div.height = myCanvas.height
@@ -60,76 +75,50 @@ var Barchart = function (options) {
         var maxValue = 0;
         var nCateg = 0
 
-        console.log("numero categorie: " + nCateg)
         for (var c in this.options.data[0].materials) {
             nCateg++
         }
-        console.log("numero categorie: " + nCateg)
+        
         var numberOfCateg = Object.keys(this.options.data[0].materials).length;
-        console.log("numberOfCateg: " + numberOfCateg)
 
         var finalData = []
+
         while (nCateg > 0) {
             finalData.push(0)
             nCateg--
         }
 
         var barIndex = 0
-        console.log("lunghezza array: " + finalData.length)
 
         for (var op of this.options.data) {
             if (filter.includes(op.result)) {
-                while (barIndex < finalData.length) {
-                    console.log("esito: " + op.result)
-                    for (let e of filter) {
-                        console.log("e f: " + e)
+                if(op.date.getFullYear() === year){
+                    while (barIndex < finalData.length) {
+                        for (var c in op.materials) {
+                            finalData[barIndex] += op.materials[c]
+                            barIndex++
+                        }
                     }
-                    console.log("presente? " + filter.includes(op.result))
-
-
-                    for (var c in op.materials) {
-                        finalData[barIndex] += op.materials[c]
-                        barIndex++
-                    }
-
-
-                    // if(op.result === filter[0]){
-                    //     for(var c in op.materials){
-                    //         finalData[barIndex] += op.materials[c]
-                    //         barIndex++
-                    //     }
-                    // }
-                    // else if(op.result === filter[0]){
-                    //     for(var c in op.materials){
-                    //         finalData[barIndex] += op.materials[c]
-                    //         barIndex++
-                    //     }
-                    // }
-                    // else if(op.result === filter[0]){
-                    //     for(var c in op.materials){
-                    //         finalData[barIndex] += op.materials[c]
-                    //         barIndex++
-                    //     }
-                    // }
-                    // for(var c in op.materials){
-                    //     finalData[barIndex] += op.materials[c]
-                    //     barIndex++
-                    // }
                 }
             }
             barIndex = 0
         }
 
         for (var i of finalData) {
-            console.log(i)
             maxValue = Math.max(maxValue, i);
         }
-        console.log("maxValue: " + maxValue)
+
+        if (filter.length === 0 || finalData.every(noData)) {
+            maxValue = 15
+        }
+
+        console.log(maxValue)
 
         var canvasActualHeight = this.canvas.height - this.options.padding * 2;
         var canvasActualWidth = this.canvas.width - this.options.padding * 2;
 
         //drawing the grid lines
+
         var gridValue = 0;
         while (gridValue <= maxValue) {
             var gridX = canvasActualWidth * (1 - gridValue / maxValue) + this.options.padding;
@@ -153,47 +142,10 @@ var Barchart = function (options) {
             gridValue += this.options.gridScale;
         }
 
-        if (filter.length === 0) {
-            console.log("pippo")
-            maxValue = 50
-            while (gridValue <= maxValue) {
-                console.log("pluto")
-                var gridX = canvasActualWidth * (1 - gridValue / maxValue) + this.options.padding
-
-                drawLine(
-                    this.ctx,
-                    this.canvas.width - gridX,
-                    0,
-                    this.canvas.width - gridX,
-                    this.canvas.height - this.options.padding,
-                    this.options.gridColor
-                );
-
-                //writing grid markers
-                this.ctx.save();
-                this.ctx.fillStyle = this.options.gridColor;
-                this.ctx.font = "bold 10px Arial";
-                this.ctx.fillText(gridValue, this.canvas.width - gridX + 2, 10);
-                this.ctx.restore();
-
-                gridValue += this.options.gridScale;
-            }
-        }
-
         //drawing the bars
-        // var numberOfBars = Object.keys(this.options.data).length;
+        
         var numberOfBars = numberOfCateg
         var barSize = (canvasActualHeight) / numberOfBars;
-
-        // while(barIndex < this.options.data[0].length){
-        //     var val = 0
-        //     for(var op of this.options.data){
-        //         val += op.materials[barIndex]
-        //     }
-        //     values.push(val)
-        //     barIndex++
-        // }
-        // barIndex = 0
 
         for (var categ of finalData) {
             var val = categ;
@@ -207,62 +159,8 @@ var Barchart = function (options) {
                 this.colors[barIndex % this.colors.length]
             );
 
-            // var labelText = "!!";
-            // this.ctx.fillStyle = "black";
-            // this.ctx.font = "bold 20px Arial";
-            // this.ctx.fillText(labelText, (this.canvas.width) -  100, 10);
-
             barIndex++;
         }
-
-
-        /*********************************************** */
-
-        // var div = document.querySelector("div[for='materialsCanvas']");
-        // div.height = myCanvas.height
-        // div.width = myCanvas.width
-
-        // var h2 = document.createElement("h2");
-        // h2.style.padding = "5px";
-        // h2.textContent = this.options.seriesName;
-        // div.append(h2);
-
-        // //drawing series name
-        // this.ctx.save();
-        // this.ctx.textBaseline="bottom";
-        // this.ctx.textAlign="center";
-        // this.ctx.fillStyle = "#000000";
-        // this.ctx.font = "bold 14px Arial";
-        // this.ctx.fillText(this.options.seriesName, this.canvas.width / 2, this.canvas.height);
-        // this.ctx.restore();
-
-        // var ul = document.createElement("ul");
-        // div.append(ul);
-
-        // for (let categ in this.options.data[0].materials){
-        //     var li = document.createElement("li");
-        //     li.style.listStyle = "none";
-        //     li.style.padding = "5px";
-        //     li.textContent = categ;
-        //     ul.append(li);
-        // }
-        /*********************************************** */
-
-        // //draw legend
-        // barIndex = 0;
-        // var legend = document.querySelector("legend[for='materialsCanvas']");
-        // var ul = document.createElement("ul");
-        // legend.append(ul);
-
-        // for (categ in this.options.data){
-        //     var li = document.createElement("li");
-        //     li.style.listStyle = "none";
-        //     li.style.borderLeft = "20px solid " + this.colors[barIndex%this.colors.length];
-        //     li.style.padding = "5px";
-        //     li.textContent = categ;
-        //     ul.append(li);
-        //     barIndex++;
-        // }
     }
 }
 
@@ -278,24 +176,12 @@ var myBarchart = new Barchart(
 );
 myBarchart.draw();
 
-
-console.log("successo: " + successCB.checked)
-if (successCB.checked) {
-    console.log("funziona")
-}
-
-
 function succClicked(event) {
     if (successCB.checked) {
         filter.splice(0, 0, "successo")
     }
     else {
         filter.splice(0, 1)
-    }
-
-    console.log("elementi in filter:")
-    for (let i of filter) {
-        console.log(i)
     }
 
     ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
@@ -320,17 +206,8 @@ function complicClicked(event) {
         }
     }
 
-    console.log("elementi in filter:")
-    for (let i of filter) {
-        console.log(i)
-    }
-
     ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
     myBarchart.draw()
-
-    for (let i of filter) {
-        console.log(i)
-    }
 }
 
 function decClicked(event) {
@@ -341,13 +218,22 @@ function decClicked(event) {
         filter.pop()
     }
 
-    console.log("elementi in filter:")
-    for (let i of filter) {
-        console.log(i)
-    }
-
     ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
     myBarchart.draw()
 }
 
-console.log("fine!")
+function prevYear(event){
+    year--
+
+    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+    myBarchart.draw()
+    updateYear(year)
+}
+
+function nextYear(event){
+    year++
+
+    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+    myBarchart.draw()
+    updateYear(year)
+}
