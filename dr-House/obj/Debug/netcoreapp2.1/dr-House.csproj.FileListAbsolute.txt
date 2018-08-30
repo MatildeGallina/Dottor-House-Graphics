@@ -12,3 +12,17 @@ C:\Users\matil\Documents\ires\Projects\Dottor-House-Graphics\dr-House\obj\Debug\
 C:\Users\matil\Documents\ires\Projects\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.RazorTargetAssemblyInfo.cache
 C:\Users\matil\Documents\ires\Projects\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.dll
 C:\Users\matil\Documents\ires\Projects\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.pdb
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\bin\Debug\netcoreapp2.1\dr-House.deps.json
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\bin\Debug\netcoreapp2.1\dr-House.runtimeconfig.json
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\bin\Debug\netcoreapp2.1\dr-House.runtimeconfig.dev.json
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\bin\Debug\netcoreapp2.1\dr-House.dll
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\bin\Debug\netcoreapp2.1\dr-House.pdb
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.csprojAssemblyReference.cache
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.csproj.CoreCompileInputs.cache
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.RazorAssemblyInfo.cache
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.RazorAssemblyInfo.cs
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.AssemblyInfoInputs.cache
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.AssemblyInfo.cs
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.RazorTargetAssemblyInfo.cache
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.dll
+C:\Users\corsista\Desktop\Project\Dottor-House-Graphics\dr-House\obj\Debug\netcoreapp2.1\dr-House.pdb

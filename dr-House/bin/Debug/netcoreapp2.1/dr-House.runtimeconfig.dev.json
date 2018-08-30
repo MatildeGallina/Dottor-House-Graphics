@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\matil\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\matil\\.nuget\\packages",
+      "C:\\Users\\corsista\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\corsista\\.nuget\\packages",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,10 @@
     <link rel="stylesheet" href="bootstrap\dist\css\bootstrap.css" />
     <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <ul class="nav navbar-nav">
+    <!-- <nav class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav navbar-fixed-top">
             <li>
                 <a href="/">
                     <img src="home-icon.png" height="25px;" />
@@ -27,19 +29,86 @@
                 <a href="materials-statistics.html">materials</a>
             </li>
         </ul>
+    </nav> -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav navbar-fixed-top">
+            <li>
+                <a onclick="nascondi()">
+                    <img src="home-icon.png" height="25px;" />
+                </a>
+            </li>
+            <li>
+                <a href="#doctors" onclick="dgView()">doctors</a>
+            </li>
+            <li>
+                <a href="#departments" onclick="dpView()">departments</a>
+            </li>
+            <li>
+                <a href="#materials" onclick="mView()">materials</a>
+            </li>
+        </ul>
     </nav>
-    
-    <header id="title">
-        <h1>Dottor House Graphics</h1>
-        <img src="cover.jpg" alt="cover image" />
-    </header>
 
-    <hr>
+    <main>
+        <header id="title">
+            <h1>Dottor House Graphics</h1>
+            <img src="cover.jpg" alt="cover image" />
+        </header>
+
+        <hr>
+
+        <section id="doctors">
+            <h2>Statistche successi singolo medico</h2>
+<!-- 
+            <canvas id="myCanvas"></canvas>
+            <legend for="myCanvas"></legend>
+
+            <script src="data.js"></script>
+            <script src="doctor-statistics-graph.js"></script> -->
+        </section>
+
+        <section id="departments">
+            <h2>Statistche operazioni per dipartimento</h2>
+<!-- 
+            <canvas id="cardiologiaCanvas"></canvas>
+            <legend for="cardiologiaCanvas"></legend>
+
+            <script src="data.js"></script>
+            <script src="department-statistics-graph.js"></script> -->
+        </section>
+
+        <section id="materials">
+            <h2>Statistche materiali utilizzati</h2>
+<!-- 
+            <div>
+                <div for="materialsCanvas" style="display: inline-block; height: 300px;"></div>
+                <canvas id="materialsCanvas"></canvas>
+                <div style="display: inline-block">
+                    <div>
+                        <div id="prev" onclick="prevYear()" style="background-color: gray">-</div>
+                        <div id="year"></div>
+                        <div id="next" onclick="nextYear()" style="background-color: gray">+</div>
+                    </div>
+                    <div>
+                        <label>Esito operazioni:</label>
+                        <input id="succ" type="checkbox" name="successo" value="successo" checked="checked" onclick="succClicked()" />Successo
+                        <input id="complic" type="checkbox" name="complicazioni" value="complicazioni" checked="checked" onclick="complicClicked()"
+                        />Complicazioni
+                        <input id="dec" type="checkbox" name="decesso" value="decesso" checked="checked" onclick="decClicked()" />Decesso
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
 
     <footer>
 
     </footer>
-    
-    <script src="data.js"></script> 
+
+    <script src="doctor-statistics-graph.js"></script>
+    <script src="department-statistics-graph.js"></script>
+    <script src="materials-statistics-graph.js"></script>
+    <script src="data.js"></script>
 </body>
+
 </html>

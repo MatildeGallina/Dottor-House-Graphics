@@ -2,6 +2,8 @@ var myCanvas = document.getElementById("materialsCanvas");
 myCanvas.width = 300;
 myCanvas.height = 300;
 
+var ctx = myCanvas.getContext("2d");
+
 var successCB = document.getElementById("succ");
 var complicationsCB = document.getElementById("complic");
 var deathCB = document.getElementById("dec");
@@ -17,9 +19,9 @@ function updateYear(year){
 }
 updateYear(year)
 
-var filter = ["successo", "complicazioni", "decesso"]
 
-var ctx = myCanvas.getContext("2d");
+
+var filter = []
 
 function drawLine(ctx, startX, startY, endX, endY, color) {
     ctx.save();
@@ -112,7 +114,7 @@ var Barchart = function (options) {
             maxValue = 15
         }
 
-        console.log(maxValue)
+        console.log("max value: " + maxValue)
 
         var canvasActualHeight = this.canvas.height - this.options.padding * 2;
         var canvasActualWidth = this.canvas.width - this.options.padding * 2;
@@ -174,21 +176,29 @@ var myBarchart = new Barchart(
         colors: ["#a55ca5", "#67b6c7", "#bccd7a", "#eb9743", "#a55cf6"]
     }
 );
-myBarchart.draw();
 
-function succClicked(event) {
+console.log(filter)
+
+succClicked()
+complicClicked()
+decClicked()
+
+console.log(filter)
+// myBarchart.draw();
+
+function succClicked() {
     if (successCB.checked) {
         filter.splice(0, 0, "successo")
     }
     else {
         filter.splice(0, 1)
     }
-
+    
     ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
     myBarchart.draw()
 }
 
-function complicClicked(event) {
+function complicClicked() {
     if (filter.includes("successo")) {
         if (complicationsCB.checked) {
             filter.splice(1, 0, "complicazioni")
@@ -210,7 +220,7 @@ function complicClicked(event) {
     myBarchart.draw()
 }
 
-function decClicked(event) {
+function decClicked() {
     if (deathCB.checked) {
         filter.push("decesso")
     }
@@ -222,7 +232,7 @@ function decClicked(event) {
     myBarchart.draw()
 }
 
-function prevYear(event){
+function prevYear(){
     year--
 
     ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
@@ -230,7 +240,7 @@ function prevYear(event){
     updateYear(year)
 }
 
-function nextYear(event){
+function nextYear(){
     year++
 
     ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
