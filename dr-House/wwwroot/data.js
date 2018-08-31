@@ -106,6 +106,7 @@ var graphics = [d, dp, m]
 function nascondi(){
     for(let g of graphics){
         g.style.display = "none"
+        console.log(g)
     }
 }
 
@@ -136,4 +137,4 @@ function mView(){
     }
 }
 
-
+nascondi()

@@ -8,7 +8,7 @@
 
 // var doctors = [dr1, dr2]
 
-var myCanvas = document.getElementById("myCanvas");
+var myCanvas = document.getElementById("drCanvas");
 myCanvas.width = 300;
 myCanvas.height = 300;
   
@@ -137,7 +137,7 @@ var Barchart = function(options){
         }
 
         console.log("legenda:")
-        var legend = document.querySelector("legend[for='myCanvas']");
+        var legend = document.querySelector("legend[for='drCanvas']");
         var ul = document.createElement("ul");
         legend.append(ul);
         // legendItem("% Successi", this.colors[0 % this.colors.length], ul)

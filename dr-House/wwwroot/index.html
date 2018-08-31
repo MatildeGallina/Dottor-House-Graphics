@@ -59,27 +59,21 @@
 
         <section id="doctors">
             <h2>Statistche successi singolo medico</h2>
-<!-- 
-            <canvas id="myCanvas"></canvas>
-            <legend for="myCanvas"></legend>
 
-            <script src="data.js"></script>
-            <script src="doctor-statistics-graph.js"></script> -->
+            <canvas id="drCanvas" style="display: inline-block"></canvas>
+            <legend for="drCanvas" style="display: inline-block"></legend>
         </section>
 
         <section id="departments">
             <h2>Statistche operazioni per dipartimento</h2>
-<!-- 
-            <canvas id="cardiologiaCanvas"></canvas>
-            <legend for="cardiologiaCanvas"></legend>
 
-            <script src="data.js"></script>
-            <script src="department-statistics-graph.js"></script> -->
+            <canvas id="cardiologiaCanvas" style="display: inline-block"></canvas>
+            <legend for="cardiologiaCanvas" style="display: inline-block"></legend>
         </section>
 
         <section id="materials">
             <h2>Statistche materiali utilizzati</h2>
-<!-- 
+
             <div>
                 <div for="materialsCanvas" style="display: inline-block; height: 300px;"></div>
                 <canvas id="materialsCanvas"></canvas>
@@ -97,7 +91,7 @@
                         <input id="dec" type="checkbox" name="decesso" value="decesso" checked="checked" onclick="decClicked()" />Decesso
                     </div>
                 </div>
-            </div> -->
+            </div>
         </section>
     </main>
 
@@ -105,10 +99,10 @@
 
     </footer>
 
+    <script src="data.js"></script>
     <script src="doctor-statistics-graph.js"></script>
     <script src="department-statistics-graph.js"></script>
     <script src="materials-statistics-graph.js"></script>
-    <script src="data.js"></script>
 </body>
 
 </html>
