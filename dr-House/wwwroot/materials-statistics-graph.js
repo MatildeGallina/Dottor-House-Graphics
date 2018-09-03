@@ -1,8 +1,8 @@
-var myCanvas = document.getElementById("materialsCanvas");
-myCanvas.width = 300;
-myCanvas.height = 300;
+var materialsCanvas = document.getElementById("materialsCanvas");
+materialsCanvas.width = 500;
+materialsCanvas.height = 300;
 
-var ctx = myCanvas.getContext("2d");
+var ctx = materialsCanvas.getContext("2d");
 
 var successCB = document.getElementById("succ");
 var complicationsCB = document.getElementById("complic");
@@ -33,8 +33,6 @@ function drawLine(ctx, startX, startY, endX, endY, color) {
     ctx.restore();
 }
 
-// drawLine(ctx, 0, 0, 0, 100, `#ccc`);
-
 function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height, color) {
     ctx.save();
     ctx.fillStyle = color;
@@ -47,8 +45,8 @@ function noData(currentValue) {
   }
 
 var div = document.querySelector("div[for='materialsCanvas']");
-div.height = myCanvas.height
-div.width = myCanvas.width
+div.height = materialsCanvas.height
+div.width = materialsCanvas.width
 
 var h2 = document.createElement("h2");
 h2.style.padding = "5px";
@@ -166,9 +164,9 @@ var Barchart = function (options) {
     }
 }
 
-var myBarchart = new Barchart(
+var materialsBarchart = new Barchart(
     {
-        canvas: myCanvas,
+        canvas: materialsCanvas,
         gridScale: 5,
         gridColor: "#ccc",
         seriesName: "Materials",
@@ -184,7 +182,6 @@ complicClicked()
 decClicked()
 
 console.log(filter)
-// myBarchart.draw();
 
 function succClicked() {
     if (successCB.checked) {
@@ -194,8 +191,8 @@ function succClicked() {
         filter.splice(0, 1)
     }
     
-    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-    myBarchart.draw()
+    ctx.clearRect(0, 0, materialsCanvas.width, materialsCanvas.height);
+    materialsBarchart.draw()
 }
 
 function complicClicked() {
@@ -216,8 +213,8 @@ function complicClicked() {
         }
     }
 
-    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-    myBarchart.draw()
+    ctx.clearRect(0, 0, materialsCanvas.width, materialsCanvas.height);
+    materialsBarchart.draw()
 }
 
 function decClicked() {
@@ -228,22 +225,22 @@ function decClicked() {
         filter.pop()
     }
 
-    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-    myBarchart.draw()
+    ctx.clearRect(0, 0, materialsCanvas.width, materialsCanvas.height);
+    materialsBarchart.draw()
 }
 
 function prevYear(){
     year--
 
-    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-    myBarchart.draw()
+    ctx.clearRect(0, 0, materialsCanvas.width, materialsCanvas.height);
+    materialsBarchart.draw()
     updateYear(year)
 }
 
 function nextYear(){
     year++
 
-    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-    myBarchart.draw()
+    ctx.clearRect(0, 0, materialsCanvas.width, materialsCanvas.height);
+    materialsBarchart.draw()
     updateYear(year)
 }

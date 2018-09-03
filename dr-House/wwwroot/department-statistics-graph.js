@@ -1,17 +1,17 @@
 console.log("ciao")
 var cardiologiaCanvas = document.getElementById("cardiologiaCanvas");
-cardiologiaCanvas.width = 300;
-cardiologiaCanvas.height = 300;
+cardiologiaCanvas.width = 500;
+cardiologiaCanvas.height = 500;
  
 var ctx = cardiologiaCanvas.getContext("2d");
 
 var neurologiaCanvas = document.getElementById("neurologiaCanvas");
-neurologiaCanvas.width = 300;
-neurologiaCanvas.height = 300;
+neurologiaCanvas.width = 500;
+neurologiaCanvas.height = 500;
 
 var oncologiaCanvas = document.getElementById("oncologiaCanvas");
-oncologiaCanvas.width = 300;
-oncologiaCanvas.height = 300;
+oncologiaCanvas.width = 500;
+oncologiaCanvas.height = 500;
 
 
 function drawLine(ctx, startX, startY, endX, endY){
@@ -52,11 +52,9 @@ var Piechart = function(options, department, idLegend){
 
         for (var dr of this.options.data){
             if(dr.department === department){
-                for(var o of dr.operations){
-                    total_value += o;
-                }
+                total_value += dr.operations.length;
 
-                var val = this.options.data[dr];
+                // var val = this.options.data[dr];
                 validData.push(dr);
             }
         }
@@ -65,10 +63,10 @@ var Piechart = function(options, department, idLegend){
         
         for (var dr of validData){
 
-            var dr_operations = 0
-            for(var o of dr.operations){
-                dr_operations += o
-            }
+            var dr_operations = dr.operations.length
+            // for(var o of dr.operations){
+            //     dr_operations += o
+            // }
 
             var slice_angle = 2 * Math.PI * dr_operations / total_value;
  
@@ -103,10 +101,10 @@ var Piechart = function(options, department, idLegend){
         start_angle = 0;
 
         for (var dr of validData){
-            var dr_operations = 0
-            for(var o of dr.operations){
-                dr_operations += o
-            }
+            var dr_operations = dr.operations.length
+            // for(var o of dr.operations){
+            //     dr_operations += o
+            // }
 
             slice_angle = 2 * Math.PI * dr_operations / total_value;
             var pieRadius = Math.min(this.canvas.width/2,this.canvas.height/2);

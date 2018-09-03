@@ -22,8 +22,13 @@
             <li>
                 <a href="#doctors" onclick="dgView()">DOCTORS</a>
             </li>
-            <li>
+            <li class="depLinks" onmouseover="comparsa()" onmouseout="chiudi()">
                 <a href="#departments" onclick="dpView()">DEPARTMENTS</a>
+                <ul id="depUl">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
             </li>
             <li>
                 <a href="#materials" onclick="mView()">MATERIALS</a>
@@ -42,27 +47,27 @@
         <section id="doctors">
             <h2>Statistche successi singolo medico</h2>
 
-            <canvas id="drCanvas" style="display: inline-block"></canvas>
-            <legend for="drCanvas" style="display: inline-block"></legend>
+            <canvas id="drCanvas"></canvas>
+            <legend for="drCanvas"></legend>
         </section>
 
         <section id="departments">
             <h2>Statistche operazioni per dipartimento</h2>
 
             <section id="cardiologia">
-                <h3>Cardiologia</h3>
-                <canvas id="cardiologiaCanvas" style="display: inline-block"></canvas>
-                <legend for="cardiologiaCanvas" style="display: inline-block"></legend>
+                <h3><em>Cardiologia</em></h3>
+                <canvas id="cardiologiaCanvas" class="canvas"></canvas>
+                <legend for="cardiologiaCanvas" class="legend"></legend>
             </section>
             <section id="neurologia">
-                <h3>Neurologia</h3>
-                <canvas id="neurologiaCanvas" style="display: inline-block"></canvas>
-                <legend for="neurologiaCanvas" style="display: inline-block"></legend>
+                <h3><em>Neurologia</em></h3>
+                <canvas id="neurologiaCanvas" class="canvas"></canvas>
+                <legend for="neurologiaCanvas" class="legend"></legend>
             </section>
             <section id="oncologia">
-                <h3>Oncologia</h3>
-                <canvas id="oncologiaCanvas" style="display: inline-block"></canvas>
-                <legend for="oncologiaCanvas" style="display: inline-block"></legend>
+                <h3><em>Oncologia</em></h3>
+                <canvas id="oncologiaCanvas" class="canvas"></canvas>
+                <legend for="oncologiaCanvas" class="legend"></legend>
             </section>
 
 
@@ -73,7 +78,7 @@
 
             <div>
                 <div for="materialsCanvas" style="display: inline-block; height: 300px;"></div>
-                <canvas id="materialsCanvas"></canvas>
+                <canvas id="materialsCanvas" class="canvas"></canvas>
                 <div style="display: inline-block">
                     <div>
                         <div id="prev" onclick="prevYear()" style="background-color: gray">-</div>
@@ -93,7 +98,75 @@
     </main>
 
     <footer>
-
+        <div class="informations">
+            <div class="sedi">
+                <h4>Central City</h4>
+                <p>via ciccia n4</p>
+                <p><strong>Tel: 0435853333</strong></p>
+                <div>
+                    <p><em>Ufficio informazioni:</em></p>
+                    <p>Da lunedì a venerdì</p>
+                    <p>8.00 - 18.30</p>
+                    <p>Sabato</p>
+                    <p>8.00 - 12.00</p>
+                </div>
+            </div>
+            <div class="sedi">
+                <h4>Gotham</h4>
+                <p>via ciccia n54</p>
+                <p><strong>Tel: 0435853333</strong></p>
+                <div>
+                    <p><em>Ufficio informazioni:</em></p>
+                    <p>Da lunedì a venerdì</p>
+                    <p>8.00 - 18.30</p>
+                    <p>Sabato</p>
+                    <p>8.00 - 12.00</p>
+                </div>
+            </div>
+            <div class="sedi">
+                <h4>Gorilla City</h4>
+                <p>via ciccia n7</p>
+                <p><strong>Tel: 0435853333</strong></p>
+                <div>
+                    <p><em>Ufficio informazioni:</em></p>
+                    <p>Da lunedì a venerdì</p>
+                    <p>8.00 - 18.30</p>
+                    <p>Sabato</p>
+                    <p>8.00 - 12.00</p>
+                </div>
+            </div>
+            <div class="sedi">
+                <h4>Ivy Town</h4>
+                <p>via pappa n7</p>
+                <p><strong>Tel: 0435853333</strong></p>
+                <div>
+                    <p><em>Ufficio informazioni:</em></p>
+                    <p>Da lunedì a venerdì</p>
+                    <p>8.00 - 18.30</p>
+                    <p>Sabato</p>
+                    <p>8.00 - 12.00</p>
+                </div>
+            </div>
+            <div class="sedi">
+                <h4>Universo 19</h4>
+                <p>via Lattea</p>
+                <p><strong>Tel: 0435853333</strong></p>
+                <div>
+                    <p><em>Ufficio informazioni:</em></p>
+                    <p>Da lunedì a venerdì</p>
+                    <p>8.00 - 18.30</p>
+                    <p>Sabato</p>
+                    <p>8.00 - 12.00</p>
+                </div>
+            </div>
+        </div>
+        <div class="subFooter">
+            <p>2018 © Dottor House Graphics S.p.A. Registro Imprese di Gotham
+                    -   N.ro Reg. Impr, C.F. e P-iva 00158790303
+                    -   R.E.A. 77954 capitale i.v. € 3.096.000
+                    -   pec: dottorhousegraphicsspa@legalmail.com</p>
+            <p>Privacy Policy - Cookie Policy</p>
+        </div>
     </footer>
 
     <script src="data.js"></script>
