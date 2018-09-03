@@ -11500,30 +11500,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\corsista\\.nuget\\packages\\": {},
+    "C:\\Users\\matil\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\corsista\\Desktop\\Project\\Dottor-House-Graphics\\dr-House\\dr-House.csproj",
+      "projectUniqueName": "C:\\Users\\matil\\Documents\\ires\\Projects\\Dottor-House-Graphics\\dr-House\\dr-House.csproj",
       "projectName": "dr-House",
-      "projectPath": "C:\\Users\\corsista\\Desktop\\Project\\Dottor-House-Graphics\\dr-House\\dr-House.csproj",
-      "packagesPath": "C:\\Users\\corsista\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\corsista\\Desktop\\Project\\Dottor-House-Graphics\\dr-House\\obj\\",
+      "projectPath": "C:\\Users\\matil\\Documents\\ires\\Projects\\Dottor-House-Graphics\\dr-House\\dr-House.csproj",
+      "packagesPath": "C:\\Users\\matil\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\matil\\Documents\\ires\\Projects\\Dottor-House-Graphics\\dr-House\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\corsista\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\matil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

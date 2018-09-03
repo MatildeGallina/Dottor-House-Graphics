@@ -1,9 +1,17 @@
 console.log("ciao")
-var myCanvas = document.getElementById("cardiologiaCanvas");
-myCanvas.width = 300;
-myCanvas.height = 300;
+var cardiologiaCanvas = document.getElementById("cardiologiaCanvas");
+cardiologiaCanvas.width = 300;
+cardiologiaCanvas.height = 300;
  
-var ctx = myCanvas.getContext("2d");
+var ctx = cardiologiaCanvas.getContext("2d");
+
+var neurologiaCanvas = document.getElementById("neurologiaCanvas");
+neurologiaCanvas.width = 300;
+neurologiaCanvas.height = 300;
+
+var oncologiaCanvas = document.getElementById("oncologiaCanvas");
+oncologiaCanvas.width = 300;
+oncologiaCanvas.height = 300;
 
 
 function drawLine(ctx, startX, startY, endX, endY){
@@ -30,7 +38,7 @@ function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color 
     ctx.fill();
 }
 
-var Piechart = function(options){
+var Piechart = function(options, department, idLegend){
     this.options = options;
     this.canvas = options.canvas;
     this.ctx = this.canvas.getContext("2d");
@@ -43,7 +51,7 @@ var Piechart = function(options){
         var validData = [];
 
         for (var dr of this.options.data){
-            if(dr.department === "Cardiologia"){
+            if(dr.department === department){
                 for(var o of dr.operations){
                     total_value += o;
                 }
@@ -127,7 +135,7 @@ var Piechart = function(options){
         }
 
         sliceIndex = 0;
-        var legend = document.querySelector("legend[for='cardiologiaCanvas']");
+        var legend = document.querySelector("legend[for='" + idLegend + "']");
         var ul = document.createElement("ul");
         legend.append(ul);
         for (var dr of validData){
@@ -145,14 +153,38 @@ var Piechart = function(options){
 
 
 // torta
-var myDougnutChart1 = new Piechart(
+var cardiologiaChart = new Piechart(
     {
-        canvas:myCanvas,
+        canvas:cardiologiaCanvas,
         data:doctors,
         colors:["#fde23e","#f16e23", "#57d9ff","#937e88", "red"],
-    }
+    },
+    "Cardiologia",
+    "cardiologiaCanvas"
 );
-myDougnutChart1.draw();
+
+var neurologiaChart = new Piechart(
+    {
+        canvas:neurologiaCanvas,
+        data:doctors,
+        colors:["#fde23e","#f16e23", "#57d9ff","#937e88", "red"],
+    },
+    "Neurologia",
+    "neurologiaCanvas"
+);
+
+var oncologiaChart = new Piechart(
+    {
+        canvas:oncologiaCanvas,
+        data:doctors,
+        colors:["#fde23e","#f16e23", "#57d9ff","#937e88", "red"],
+    },
+    "Oncologia",
+    "oncologiaCanvas"
+);
+cardiologiaChart.draw();
+neurologiaChart.draw();
+oncologiaChart.draw();
 
 
 // // Ciambella

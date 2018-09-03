@@ -12,47 +12,29 @@
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-default navbar-fixed-top">
-        <ul class="nav navbar-nav navbar-fixed-top">
-            <li>
-                <a href="/">
-                    <img src="home-icon.png" height="25px;" />
-                </a>
-            </li>
-            <li>
-                <a href="doctor-statistics.html">doctors</a>
-            </li>
-            <li>
-                <a href="department-statistics.html">departments</a>
-            </li>
-            <li>
-                <a href="materials-statistics.html">materials</a>
-            </li>
-        </ul>
-    </nav> -->
     <nav class="navbar navbar-default navbar-fixed-top">
-        <ul class="nav navbar-nav navbar-fixed-top">
+        <ul class="nav navbar-nav navbar-fixed-top container">
             <li>
-                <a onclick="nascondi()">
-                    <img src="home-icon.png" height="25px;" />
+                <a onclick="nascondi()" style="height: 50px;">
+                    <img src="home-icon.png" height="25px" />DOTTOR HOUSE HOSPITAL
                 </a>
             </li>
             <li>
-                <a href="#doctors" onclick="dgView()">doctors</a>
+                <a href="#doctors" onclick="dgView()">DOCTORS</a>
             </li>
             <li>
-                <a href="#departments" onclick="dpView()">departments</a>
+                <a href="#departments" onclick="dpView()">DEPARTMENTS</a>
             </li>
             <li>
-                <a href="#materials" onclick="mView()">materials</a>
+                <a href="#materials" onclick="mView()">MATERIALS</a>
             </li>
         </ul>
     </nav>
 
     <main>
-        <header id="title">
-            <h1>Dottor House Graphics</h1>
-            <img src="cover.jpg" alt="cover image" />
+        <header>
+            <!-- <img src="cover.jpg" alt="cover image" class="cover-image" /> -->
+            <h1 id="title">Dottor House Graphics</h1>
         </header>
 
         <hr>
@@ -67,8 +49,23 @@
         <section id="departments">
             <h2>Statistche operazioni per dipartimento</h2>
 
-            <canvas id="cardiologiaCanvas" style="display: inline-block"></canvas>
-            <legend for="cardiologiaCanvas" style="display: inline-block"></legend>
+            <section id="cardiologia">
+                <h3>Cardiologia</h3>
+                <canvas id="cardiologiaCanvas" style="display: inline-block"></canvas>
+                <legend for="cardiologiaCanvas" style="display: inline-block"></legend>
+            </section>
+            <section id="neurologia">
+                <h3>Neurologia</h3>
+                <canvas id="neurologiaCanvas" style="display: inline-block"></canvas>
+                <legend for="neurologiaCanvas" style="display: inline-block"></legend>
+            </section>
+            <section id="oncologia">
+                <h3>Oncologia</h3>
+                <canvas id="oncologiaCanvas" style="display: inline-block"></canvas>
+                <legend for="oncologiaCanvas" style="display: inline-block"></legend>
+            </section>
+
+
         </section>
 
         <section id="materials">

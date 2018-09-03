@@ -1,20 +1,32 @@
-.navbar-inverse {
-    background-color: crimson;
-    border-color: crimson;
-}
-
 #title{
-    margin-top: 100px;
-    color: crimson;
+    margin-top: 8rem;
     align-content: center;
+    text-align: center;
+    font-family: 'Brush Script Std';
+    color: crimson;
+    font-size: 8rem;
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 }
 
-#icon{
-    height: 0.8em;
+.container{
+    display: flex;
+    flex-direction: row;
+    margin: auto 0;
+    justify-content: center;
+    align-items: center;
 }
 
-.canvas-div{
-    
+.cover-image{
+    position: absolute;
+    margin-top: 70px;
+}
+
+
+header{
+    background-image: url(cover.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-height: 50em;
 }
 
 legend{
