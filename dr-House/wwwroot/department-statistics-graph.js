@@ -1,18 +1,69 @@
 console.log("ciao")
+
+function setCanvas(canvas){
+    canvas.width = 500;
+    canvas.height = 500;
+}
 var cardiologiaCanvas = document.getElementById("cardiologiaCanvas");
-cardiologiaCanvas.width = 500;
-cardiologiaCanvas.height = 500;
- 
-var ctx = cardiologiaCanvas.getContext("2d");
-
-var neurologiaCanvas = document.getElementById("neurologiaCanvas");
-neurologiaCanvas.width = 500;
-neurologiaCanvas.height = 500;
-
 var oncologiaCanvas = document.getElementById("oncologiaCanvas");
-oncologiaCanvas.width = 500;
-oncologiaCanvas.height = 500;
+var neurologiaCanvas = document.getElementById("neurologiaCanvas");
+var oculisticChart = document.getElementById("oculisticCanvas");
+var pediatriaChart = document.getElementById("pediatriaCanvas");
+var generalChart = document.getElementById("generalCanvas");
+var ortopediaChart = document.getElementById("ortopediaCanvas");
+// cardiologiaCanvas.width = 500;
+// cardiologiaCanvas.height = 500;
 
+var canvas = [cardiologiaCanvas, oncologiaCanvas, neurologiaCanvas, oculisticChart, pediatriaChart, generalChart, ortopediaChart]
+
+for(let c of canvas){
+    setCanvas(c)
+}
+
+function fillColor(mainT, t1, t2, datas){
+    var colors = []
+    if(mainT == 0){
+        let red = 255
+        for(let i = 0; i < datas.length; i++){
+            let c = "rgb(" + red +", " + t1 + ", " + t2 + ")"
+            colors.push(c)
+            if(red > 30)
+                red -=30
+            else
+                t2 -=20
+        }
+    }
+    else if(mainT == 1){
+        let green = 255
+        for(let i = 0; i < datas.length; i++){
+            let c = "rgb(" + t1 +", " + green + ", " + t2 + ")"
+            colors.push(c)
+            if(green > 30)
+                green -= 30
+            else
+                t2 += 10
+        }
+    }
+    else{
+        let blue = 255
+        for(let i = 0; i < datas.length; i++){
+            let c = "rgb(" + t1 +", " + t2 + ", " + blue + ")"
+            colors.push(c)
+            if(blue > 50)
+                blue -=50
+            else
+                t1 += 20
+        }
+    }
+    return colors
+}
+// neurologiaCanvas.width = 500;
+// neurologiaCanvas.height = 500;
+
+// oncologiaCanvas.width = 500;
+// oncologiaCanvas.height = 500;
+
+var ctx = cardiologiaCanvas.getContext("2d");
 
 function drawLine(ctx, startX, startY, endX, endY){
     ctx.beginPath();
@@ -155,7 +206,8 @@ var cardiologiaChart = new Piechart(
     {
         canvas:cardiologiaCanvas,
         data:doctors,
-        colors:["#fde23e","#f16e23", "#57d9ff","#937e88", "red"],
+        colors:fillColor(0, 100, 100, doctors)
+        // colors:["rgb(255, 75, 75)","rgb(225, 75, 75)", "rgb(195, 75, 75)","rgb(165, 75, 75)", "rgb(135, 75, 75)"],
     },
     "Cardiologia",
     "cardiologiaCanvas"
@@ -165,7 +217,8 @@ var neurologiaChart = new Piechart(
     {
         canvas:neurologiaCanvas,
         data:doctors,
-        colors:["#fde23e","#f16e23", "#57d9ff","#937e88", "red"],
+        colors:fillColor(1, 100, 100, doctors)
+        // colors:["rgb(75, 255, 75)","rgb(75, 225, 75)", "rgb(75, 195, 75)","rgb(75, 165, 75)", "rgb(75, 135, 75)"],
     },
     "Neurologia",
     "neurologiaCanvas"
@@ -175,14 +228,61 @@ var oncologiaChart = new Piechart(
     {
         canvas:oncologiaCanvas,
         data:doctors,
-        colors:["#fde23e","#f16e23", "#57d9ff","#937e88", "red"],
+        colors:fillColor(2, 100, 100, doctors)
+        // colors:["rgb(75, 75, 255)","rgb(75, 75, 225)", "rgb(75, 75, 195)","rgb(75, 75, 165)", "rgb(75, 75, 135)"],
     },
     "Oncologia",
     "oncologiaCanvas"
 );
+var oculisticChart = new Piechart(
+    {
+        canvas:oculisticCanvas,
+        data:doctors,
+        colors:fillColor(0, 120, 80, doctors)
+        // colors:["rgb(75, 75, 255)","rgb(75, 75, 225)", "rgb(75, 75, 195)","rgb(75, 75, 165)", "rgb(75, 75, 135)"],
+    },
+    "Oculistica",
+    "oculisticCanvas"
+);
+var pediatriaChart = new Piechart(
+    {
+        canvas:pediatriaCanvas,
+        data:doctors,
+        colors:fillColor(1, 120, 80, doctors)
+        // colors:["rgb(75, 75, 255)","rgb(75, 75, 225)", "rgb(75, 75, 195)","rgb(75, 75, 165)", "rgb(75, 75, 135)"],
+    },
+    "Pediatria",
+    "pediatriaCanvas"
+);
+var generalChart = new Piechart(
+    {
+        canvas:generalCanvas,
+        data:doctors,
+        colors:fillColor(2, 120, 80, doctors)
+        // colors:["rgb(75, 75, 255)","rgb(75, 75, 225)", "rgb(75, 75, 195)","rgb(75, 75, 165)", "rgb(75, 75, 135)"],
+    },
+    "Generale",
+    "generalCanvas"
+);
+var ortopediaChart = new Piechart(
+    {
+        canvas:ortopediaCanvas,
+        data:doctors,
+        colors:fillColor(0, 200, 200, doctors)
+        // colors:["rgb(75, 75, 255)","rgb(75, 75, 225)", "rgb(75, 75, 195)","rgb(75, 75, 165)", "rgb(75, 75, 135)"],
+    },
+    "Ortopedia",
+    "ortopediaCanvas"
+);
+
 cardiologiaChart.draw();
 neurologiaChart.draw();
 oncologiaChart.draw();
+oculisticChart.draw();
+pediatriaChart.draw();
+generalChart.draw();
+ortopediaChart.draw();
+
 
 
 // // Ciambella

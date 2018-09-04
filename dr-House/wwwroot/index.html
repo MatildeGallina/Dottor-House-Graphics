@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" href="bootstrap\dist\css\bootstrap.css" />
     <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -25,9 +28,15 @@
             <li class="depLinks" onmouseover="comparsa()" onmouseout="chiudi()">
                 <a href="#departments" onclick="dpView()">DEPARTMENTS</a>
                 <ul id="depUl">
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
+                    <li onclick="dpView()">
+                        <a href="#cardiologia">Cardiologia</a>
+                    </li>
+                    <li onclick="dpView()">
+                        <a href="#neurologia">Neurologia</a>
+                    </li>
+                    <li onclick="dpView()">
+                        <a href="#oncologia">Oncologia</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -36,9 +45,9 @@
         </ul>
     </nav>
 
+
     <main>
         <header>
-            <!-- <img src="cover.jpg" alt="cover image" class="cover-image" /> -->
             <h1 id="title">Dottor House Graphics</h1>
         </header>
 
@@ -59,17 +68,42 @@
                 <canvas id="cardiologiaCanvas" class="canvas"></canvas>
                 <legend for="cardiologiaCanvas" class="legend"></legend>
             </section>
+
             <section id="neurologia">
                 <h3><em>Neurologia</em></h3>
                 <canvas id="neurologiaCanvas" class="canvas"></canvas>
                 <legend for="neurologiaCanvas" class="legend"></legend>
             </section>
+
             <section id="oncologia">
                 <h3><em>Oncologia</em></h3>
                 <canvas id="oncologiaCanvas" class="canvas"></canvas>
                 <legend for="oncologiaCanvas" class="legend"></legend>
             </section>
 
+            <section id="">
+                <h3><em>Oculistica</em></h3>
+                <canvas id="oculisticCanvas" class="canvas"></canvas>
+                <legend for="oculisticCanvas" class="legend"></legend>
+            </section>
+
+            <section id="">
+                <h3><em>Pediatria</em></h3>
+                <canvas id="pediatriaCanvas" class="canvas"></canvas>
+                <legend for="pediatriaCanvas" class="legend"></legend>
+            </section>
+
+            <section id="">
+                <h3><em>Chirurgia generale</em></h3>
+                <canvas id="generalCanvas" class="canvas"></canvas>
+                <legend for="generalCanvas" class="legend"></legend>
+            </section>
+
+            <section id="">
+                <h3><em>Ortopedia</em></h3>
+                <canvas id="ortopediaCanvas" class="canvas"></canvas>
+                <legend for="ortopediaCanvas" class="legend"></legend>
+            </section>
 
         </section>
 
@@ -161,10 +195,8 @@
             </div>
         </div>
         <div class="subFooter">
-            <p>2018 © Dottor House Graphics S.p.A. Registro Imprese di Gotham
-                    -   N.ro Reg. Impr, C.F. e P-iva 00158790303
-                    -   R.E.A. 77954 capitale i.v. € 3.096.000
-                    -   pec: dottorhousegraphicsspa@legalmail.com</p>
+            <p>2018 © Dottor House Graphics S.p.A. Registro Imprese di Gotham - N.ro Reg. Impr, C.F. e P-iva 00158790303
+                - R.E.A. 77954 capitale i.v. € 3.096.000 - pec: dottorhousegraphicsspa@legalmail.com</p>
             <p>Privacy Policy - Cookie Policy</p>
         </div>
     </footer>

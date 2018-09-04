@@ -1,5 +1,5 @@
 #title{
-    margin-top: 8rem;
+    margin-top: 15rem;
     align-content: center;
     text-align: center;
     font-family: 'Brush Script Std';
@@ -10,7 +10,11 @@
     min-height: 4em;
 }
 
-.container{
+#depUl a{
+    color: white;
+}
+
+.container, .carousel-inner{
     display: flex;
     flex-direction: row;
     margin: auto 0;
@@ -22,38 +26,19 @@
     position: absolute;
     margin-top: 70px;
 }
-
 .depLinks {
-    -webkit-transition-property: height;
-    transition-property: height;
-    -webkit-transition-duration: 5s;
-    transition-duration: 5s;
-    -webkit-transition-timing-function: linear;
-    transition-timing-function: linear;
-    -webkit-transition-delay: .5s;
-    transition-delay: .5s;
-    transition: 1.5s;
-    /* transition: transition-property transition-duration transition-timing-function transition-delay */
+    height: 50px;
+    transition: height 2s;
 }
+
 .depLinks:hover {
     height: 150px;
     background: rgba(70, 70, 70, 0.205)
 }
 
 #depUl{
-    display: none
-}
-
-#depUl[display=block]{
-    -webkit-transition-property: display;
-    transition-property: display;
-    -webkit-transition-duration: 5s;
-    transition-duration: 5s;
-    -webkit-transition-timing-function: linear;
-    transition-timing-function: linear;
-    -webkit-transition-delay: .5s;
-    transition-delay: .5s;
-    transition: 3s;
+    display: none;
+    color: white
 }
 
 header{
@@ -73,13 +58,13 @@ legend{
 }
 
 section{
-    margin: 50px auto 0;
+    margin: 50px auto 7em;
     /* max-width:800px; */
     width: 80vw;
     background-color: white;
     border: 2px gray solid;
     border-radius: 0.7em;
-    padding: 2em;
+    padding: 7em;
 }
 
 section > section{
@@ -133,3 +118,4 @@ canvas{
 .sedi div p{
     margin: 0;
 }
+

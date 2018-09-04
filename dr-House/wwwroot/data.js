@@ -433,6 +433,10 @@ function dpView() {
         else
             g.style.display = "none"
     }
+
+    // var v = document.getElementsByClassName("depLinks")
+    // v.height = 50;
+    // chiudi()
 }
 
 function mView() {
@@ -447,6 +451,8 @@ function mView() {
 function comparsa(){
     var m = document.getElementById("depUl")
     m.style.display = "block"
+    m.style.position = "absolute"
+    m.style.bottom = "15px"
 }
 
 function chiudi(){
