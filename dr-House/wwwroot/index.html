@@ -113,18 +113,31 @@
             <div>
                 <div for="materialsCanvas" style="display: inline-block; height: 300px;"></div>
                 <canvas id="materialsCanvas" class="canvas"></canvas>
-                <div style="display: inline-block">
-                    <div>
-                        <div id="prev" onclick="prevYear()" style="background-color: gray">-</div>
+                <div class="check-wrapper">
+                    <div class="container">
+                        <div id="prev" class="btn" onclick="prevYear()" style="background-color: gray">-</div>
                         <div id="year"></div>
-                        <div id="next" onclick="nextYear()" style="background-color: gray">+</div>
+                        <div id="next" class="btn" onclick="nextYear()" style="background-color: gray">+</div>
                     </div>
-                    <div>
+                    <div class="container">
                         <label>Esito operazioni:</label>
-                        <input id="succ" type="checkbox" name="successo" value="successo" checked="checked" onclick="succClicked()" />Successo
-                        <input id="complic" type="checkbox" name="complicazioni" value="complicazioni" checked="checked" onclick="complicClicked()"
-                        />Complicazioni
-                        <input id="dec" type="checkbox" name="decesso" value="decesso" checked="checked" onclick="decClicked()" />Decesso
+                        <form class="check.wrapper">
+                            <div>
+                                <input id="succ" 
+                                    type="checkbox" name="successo" value="successo" 
+                                    checked="checked" onclick="succClicked()" />Successo
+                            </div>
+                            <div>
+                                <input id="complic" 
+                                    type="checkbox" name="complicazioni" value="complicazioni" 
+                                    checked="checked" onclick="complicClicked()"/>Complicazioni
+                            </div>
+                            <div>
+                                <input id="dec" 
+                                    type="checkbox" name="decesso" value="decesso" 
+                                    checked="checked" onclick="decClicked()" />Decesso
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
