@@ -18,11 +18,51 @@
     align-items: top;
 }
 
-.check-wrapper{
+nav > ul.navbar-fixed-top{
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: top;
+}
+
+nav a > img{
+    margin: 0 10px
+}
+
+#materials{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+}
+
+.check-wrapper{
+    display: inline-block;
     flex-direction: column;
     justify-content: center;
     align-items: top;
+    border: 10px rgb(221, 220, 220) solid;
+    border-radius: 0.5em;
+    padding: 5em 7em;
+    width: 20%;
+}
+
+/* .check-wrapper > div, .check-wrapper p, .check-wrapper input, #year, .check-wrapper form, .check-wrapper form > div, .canvas-wrapper > div > h2, .canvas-wrapper > div > ul{
+    display: inline-block;
+} */
+
+.canvas-wrapper{
+    /* align-items: top;
+    padding: 5em 7em; */
+    display: inline-block;
+    padding-top: 6em;
+    width: 80%;
+}
+
+section > hr{
+    height: 0.8em;
+    background: linear-gradient(rgba(0, 0, 0, 0.322), rgba(255, 255, 255, 0));
+    background: -webkit-linear-gradient(rgb(0, 0, 0), rgba(255, 255, 255, 0));
 }
 
 .cover-image{
@@ -41,8 +81,13 @@
 }
 
 .depLinks:hover > a{
-    background-color: #6d6d6d41;
+    background-color: #f8f8f877;
     border-radius: 0.7em;
+}
+
+section > h2{
+    align-content: center;
+    font-size: 4rem;
 }
 
 #depUl{
@@ -81,13 +126,14 @@ section{
     /* max-width:800px; */
     width: 80vw;
     background-color: white;
-    border: 2px gray solid;
-    border-radius: 0.7em;
+    /* border: 2px gray solid;
+    border-radius: 0.7em; */
     padding: 7em;
 }
 
 section > section{
     width: 80rem;
+    border-bottom: 1px solid;
 }
 
 legend > ul{
@@ -109,6 +155,11 @@ canvas{
 .canvas{
     display: inline-block
 }
+
+/* section > .canvas-wrapper{
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    background: -webkit-linear-gradient(rgb(153, 153, 153), rgba(255, 255, 255, 0));
+} */
 
 .informations{
     display: flex;

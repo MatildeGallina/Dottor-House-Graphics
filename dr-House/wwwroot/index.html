@@ -15,8 +15,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <ul class="nav navbar-nav navbar-fixed-top container">
+    <nav class="navbar  navbar-inverse navbar-fixed-top">
+        <ul class="navbar nav navbar-nav navbar-fixed-top">
             <li>
                 <a onclick="nascondi()" style="height: 50px;">
                     <img src="home-icon.png" height="25px" />DOTTOR HOUSE HOSPITAL
@@ -54,14 +54,20 @@
         <hr>
 
         <section id="doctors">
-            <h2>Statistche successi singolo medico</h2>
+            <h2>Statistiche successi singolo medico</h2>
 
-            <canvas id="drCanvas"></canvas>
-            <legend for="drCanvas"></legend>
+            <hr>
+
+            <div class="canvas-wrapper">
+                <canvas id="drCanvas"></canvas>
+                <legend for="drCanvas"></legend>
+            </div>
         </section>
 
         <section id="departments">
             <h2>Statistche operazioni per dipartimento</h2>
+
+            <hr>
 
             <section id="cardiologia">
                 <h3><em>Cardiologia</em></h3>
@@ -110,35 +116,32 @@
         <section id="materials">
             <h2>Statistche materiali utilizzati</h2>
 
-            <div>
+            <hr>
+
+            <div class="canvas-wrapper">
                 <div for="materialsCanvas" style="display: inline-block; height: 300px;"></div>
                 <canvas id="materialsCanvas" class="canvas"></canvas>
-                <div class="check-wrapper">
-                    <div class="container">
-                        <div id="prev" class="btn" onclick="prevYear()" style="background-color: gray">-</div>
-                        <div id="year"></div>
-                        <div id="next" class="btn" onclick="nextYear()" style="background-color: gray">+</div>
-                    </div>
-                    <div class="container">
-                        <label>Esito operazioni:</label>
-                        <form class="check.wrapper">
-                            <div>
-                                <input id="succ" 
-                                    type="checkbox" name="successo" value="successo" 
-                                    checked="checked" onclick="succClicked()" />Successo
-                            </div>
-                            <div>
-                                <input id="complic" 
-                                    type="checkbox" name="complicazioni" value="complicazioni" 
-                                    checked="checked" onclick="complicClicked()"/>Complicazioni
-                            </div>
-                            <div>
-                                <input id="dec" 
-                                    type="checkbox" name="decesso" value="decesso" 
-                                    checked="checked" onclick="decClicked()" />Decesso
-                            </div>
-                        </form>
-                    </div>
+            </div>
+            <div class="check-wrapper">
+                <div class="">
+                    <div id="prev" class="btn" onclick="prevYear()" style="background-color: #c0c0c0">-</div>
+                    <div id="year"></div>
+                    <div id="next" class="btn" onclick="nextYear()" style="background-color: #c0c0c0">+</div>
+                </div>
+                <div class="">
+                    <label>Esito operazioni:</label>
+                    <form class="check.wrapper">
+                        <div>
+                            <input id="succ" type="checkbox" name="successo" value="successo" checked="checked" onclick="succClicked()" />Successo
+                        </div>
+                        <div>
+                            <input id="complic" type="checkbox" name="complicazioni" value="complicazioni" checked="checked" onclick="complicClicked()"
+                            />Complicazioni
+                        </div>
+                        <div>
+                            <input id="dec" type="checkbox" name="decesso" value="decesso" checked="checked" onclick="decClicked()" />Decesso
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
