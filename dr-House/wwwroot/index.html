@@ -29,13 +29,25 @@
                 <a href="#departments" onclick="dpView()">DEPARTMENTS</a>
                 <ul id="depUl">
                     <li onclick="dpView()">
-                        <a href="#cardiologia">Cardiologia</a>
+                        <a href="#cardiology">CARDIOLOGY</a>
                     </li>
                     <li onclick="dpView()">
-                        <a href="#neurologia">Neurologia</a>
+                        <a href="#neurology">NEUROLOGY</a>
                     </li>
                     <li onclick="dpView()">
-                        <a href="#oncologia">Oncologia</a>
+                        <a href="#oncology">ONCOLOGY</a>
+                    </li>
+                    <li onclick="dpView()">
+                        <a href="#ophthalmology">OPHTHALMOLOGY</a>
+                    </li>
+                    <li onclick="dpView()">
+                        <a href="#pediatrics">PEDIATRICS</a>
+                    </li>
+                    <li onclick="dpView()">
+                        <a href="#general">GENERAL</a>
+                    </li>
+                    <li onclick="dpView()">
+                        <a href="#orthopedics">ORTHOPEDICS</a>
                     </li>
                 </ul>
             </li>
@@ -69,43 +81,43 @@
 
             <hr>
 
-            <section id="cardiologia">
+            <section id="cardiology">
                 <h3><em>Cardiologia</em></h3>
                 <canvas id="cardiologiaCanvas" class="canvas"></canvas>
                 <legend for="cardiologiaCanvas" class="legend"></legend>
             </section>
 
-            <section id="neurologia">
+            <section id="neurology">
                 <h3><em>Neurologia</em></h3>
                 <canvas id="neurologiaCanvas" class="canvas"></canvas>
                 <legend for="neurologiaCanvas" class="legend"></legend>
             </section>
 
-            <section id="oncologia">
+            <section id="oncology">
                 <h3><em>Oncologia</em></h3>
                 <canvas id="oncologiaCanvas" class="canvas"></canvas>
                 <legend for="oncologiaCanvas" class="legend"></legend>
             </section>
 
-            <section id="">
+            <section id="ophthalmology">
                 <h3><em>Oculistica</em></h3>
                 <canvas id="oculisticCanvas" class="canvas"></canvas>
                 <legend for="oculisticCanvas" class="legend"></legend>
             </section>
 
-            <section id="">
+            <section id="pediatrics">
                 <h3><em>Pediatria</em></h3>
                 <canvas id="pediatriaCanvas" class="canvas"></canvas>
                 <legend for="pediatriaCanvas" class="legend"></legend>
             </section>
 
-            <section id="">
+            <section id="general">
                 <h3><em>Chirurgia generale</em></h3>
                 <canvas id="generalCanvas" class="canvas"></canvas>
                 <legend for="generalCanvas" class="legend"></legend>
             </section>
 
-            <section id="">
+            <section id="orthopedics">
                 <h3><em>Ortopedia</em></h3>
                 <canvas id="ortopediaCanvas" class="canvas"></canvas>
                 <legend for="ortopediaCanvas" class="legend"></legend>
@@ -119,30 +131,32 @@
             <hr>
 
             <div class="canvas-wrapper">
-                <div for="materialsCanvas" style="display: inline-block; height: 300px;"></div>
                 <canvas id="materialsCanvas" class="canvas"></canvas>
             </div>
-            <div class="check-wrapper">
-                <div class="">
-                    <div id="prev" class="btn" onclick="prevYear()" style="background-color: #c0c0c0">-</div>
-                    <div id="year"></div>
-                    <div id="next" class="btn" onclick="nextYear()" style="background-color: #c0c0c0">+</div>
+            <div class="data-wrapper">
+                <div class="filter">
+                    <div>
+                        <div id="prev" class="btn" onclick="prevYear()" style="background-color: #c0c0c0">-</div>
+                        <div id="year"></div>
+                        <div id="next" class="btn" onclick="nextYear()" style="background-color: #c0c0c0">+</div>
+                    </div>
+                    <div>
+                        <label>Esito operazioni:</label>
+                        <form>
+                            <div>
+                                <input id="succ" type="checkbox" name="successo" value="successo" checked="checked" onclick="succClicked()" />Successo
+                            </div>
+                            <div>
+                                <input id="complic" type="checkbox" name="complicazioni" value="complicazioni" checked="checked" onclick="complicClicked()"
+                                />Complicazioni
+                            </div>
+                            <div>
+                                <input id="dec" type="checkbox" name="decesso" value="decesso" checked="checked" onclick="decClicked()" />Decesso
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="">
-                    <label>Esito operazioni:</label>
-                    <form class="check.wrapper">
-                        <div>
-                            <input id="succ" type="checkbox" name="successo" value="successo" checked="checked" onclick="succClicked()" />Successo
-                        </div>
-                        <div>
-                            <input id="complic" type="checkbox" name="complicazioni" value="complicazioni" checked="checked" onclick="complicClicked()"
-                            />Complicazioni
-                        </div>
-                        <div>
-                            <input id="dec" type="checkbox" name="decesso" value="decesso" checked="checked" onclick="decClicked()" />Decesso
-                        </div>
-                    </form>
-                </div>
+                <legend for="materialsCanvas" class="legend"></legend>
             </div>
         </section>
     </main>

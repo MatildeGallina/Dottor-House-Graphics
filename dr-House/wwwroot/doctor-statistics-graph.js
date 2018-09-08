@@ -1,8 +1,3 @@
-// const DEATH = "decesso"
-// const COMPLICATIONS = "complicazioni"
-// const SUCCESS = "successo"
-
-
 var myCanvas = document.getElementById("drCanvas");
 myCanvas.width = 1000;
 myCanvas.height = 300;
@@ -52,7 +47,7 @@ var Barchart = function (options) {
         //drawing the grid lines
         var gridValue = 0;
         while (gridValue <= maxValue) {
-            var gridY = canvasActualHeight * (1 - gridValue / maxValue) + this.options.padding;
+            let gridY = canvasActualHeight * (1 - gridValue / maxValue) + this.options.padding;
 
             drawLine(
                 this.ctx,
@@ -73,21 +68,28 @@ var Barchart = function (options) {
             gridValue += this.options.gridScale;
         }
 
+        var doctors = []
+
+        for(let patient of this.options.data){
+            for(let operation of patient.operationsList){
+                if(!doctors.includes(operation.doctor)){
+                    doctors.push(operation.doctor)
+                }
+                let index = doctors.indexOf(operation.doctor)
+                doctors[index].operations.push(operation)
+            }
+        }
+
         //drawing the bars
         var collIndex = 0
-        var numberOfBars = Object.keys(this.options.data).length;
+        var numberOfBars = doctors.length;
         var barSize = (canvasActualWidth - (5 * this.options.padding)) / numberOfBars;
 
-        console.log("numero di colonne: " + numberOfBars)
-        console.log("option.data: " + this.options.data)
-
-        for (var dr of this.options.data) {
-
-            var dr_operations = dr.operations.length
+        for (let dr of doctors) {
+            let dr_operations = dr.operations.length
             let statistics = [0, 0, 0]
-            console.log("lista operazioni")
+            
             for(let o of dr.operations){
-                console.log("o " + o)
                 if(o.result === SUCCESS){
                     statistics[0] += 1
                 }
@@ -102,31 +104,18 @@ var Barchart = function (options) {
             //     dr_operations += o
             // }
 
-            console.log("[dr]: " + dr)
-            console.log("option.data[dr]: " + this.options.data[dr])
+            let barIndex = 0;
+            let startX = 5 * this.options.padding + collIndex * barSize
+            let startY
 
-            var barIndex = 0;
-            var startX = 5 * this.options.padding + collIndex * barSize
-            var startY
-
-            console.log("startX: " + startX)
-            console.log("startY: " + startY)
-
-            console.log("statistics" + statistics)
-
-            for (var o of statistics) {
-                var barHeight = Math.round(canvasActualHeight * (o / dr_operations));
-                console.log("altezza barra: " + barHeight)
-
-                console.log("indice barra: " + barIndex)
+            for (let o of statistics) {
+                let barHeight = Math.round(canvasActualHeight * (o / dr_operations));
+                
                 if (barIndex == 0)
                     startY = this.canvas.height - barHeight - this.options.padding
                 else {
                     startY = startY - barHeight
                 }
-
-                console.log("startX: " + startX)
-                console.log("startY: " + startY)
 
                 drawBar(
                     this.ctx, // contesto
@@ -148,30 +137,26 @@ var Barchart = function (options) {
             collIndex++;
         }
 
-        console.log("legenda:")
         var legend = document.querySelector("legend[for='drCanvas']");
         var ul = document.createElement("ul");
         legend.append(ul);
         // legendItem("% Successi", this.colors[0 % this.colors.length], ul)
-        ul.append(legendItem("% Successi", this.colors[0 % this.colors.length], ul));
+        ul.append(legendItem("% Success", this.colors[0 % this.colors.length], ul));
         // legendItem("% Complicazioni", this.colors[1 % this.colors.length], ul)
-        ul.append(legendItem("% Complicazioni", this.colors[1 % this.colors.length], ul));
+        ul.append(legendItem("% Complications", this.colors[1 % this.colors.length], ul));
         // legendItem("% Decessi", this.colors[2 % this.colors.length], ul)
-        ul.append(legendItem("% Decessi", this.colors[2 % this.colors.length], ul));
-        console.log("ssssss")
+        ul.append(legendItem("% Death", this.colors[2 % this.colors.length], ul));
     }
 }
-console.log("ffffff")
+
 var myBarchart = new Barchart(
     {
         canvas: myCanvas,
         padding: 10,
         gridScale: 5,
         gridColor: "#ccc",
-        data: doctors,
+        data: patients,
         colors: ["rgba(62, 185, 62, 0.8)", "rgba(255, 189, 7, 0.8)", "rgba(241, 80, 80, 0.8)"]
     }
 );
 myBarchart.draw();
-
-console.log("aaaa")

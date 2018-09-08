@@ -1,6 +1,6 @@
 function Patient(name, operationsList) {
     this.name = name,
-        this.operationsList = operationsList
+    this.operationsList = operationsList
 }
 
 function Doctor(name, department, operations) {
@@ -20,9 +20,9 @@ function Materials(
     // bisturi, forbici, pinze, divaricatore, enterostati, clip, aghi, placche, bypass, chiodi, protesi, anestetico, sedativo
     scalpel, scissors, forceps, retractor, enterostates, clips, needles, plates, bypass, nails, prosthesis, anesthetic, sedative) {
     this.scalpel = scalpel,
-        this.scissors = scissors,
-        this.forceps = forceps,
-        this.retractor = retractor
+    this.scissors = scissors,
+    this.forceps = forceps,
+    this.retractor = retractor
     // this.enterostates = enterostates,
     // this.clips = clips,
     // this.needles = needles,
@@ -34,48 +34,48 @@ function Materials(
     // this.sedative = sedative
 }
 
-const DEATH = "decesso"
-const COMPLICATIONS = "complicazioni"
-const SUCCESS = "successo"
+const DEATH = "death"
+const COMPLICATIONS = "complications"
+const SUCCESS = "success"
 
-const NEUROLOGIA = "Neurologia"
-const ONCOLOGIA = "Oncologia"
-const CARDIOLOGIA = "Cardiologia"
-const OCULISTICS = "Oculistica"
-const PEDIATRIA = "Pediatria"
-const GENERALE = "Generale"
-const ORTOPEDIA = "Ortopedia"
+const CARDIOLOGY = "cardiology"
+const NEUROLOGY = "neurology"
+const ONCOLOGY = "oncology"
+const OPHTHALMOLOGY = "ophthalmology"
+const PEDIATRICS = "pediatrics"
+const GENERAL = "general"
+const ORTHOPEDICS = "orthopedics"
 
-var dr1 = new Doctor("Mario", NEUROLOGIA, [])
-var dr2 = new Doctor("Luigi", ONCOLOGIA, [])
-var dr3 = new Doctor("Peach", CARDIOLOGIA, [])
-var dr4 = new Doctor("Todette", PEDIATRIA, [])
-var dr5 = new Doctor("Wario", NEUROLOGIA, [])
-var dr6 = new Doctor("Waluigi", ONCOLOGIA, [])
-var dr7 = new Doctor("Principessa Daisy", ONCOLOGIA, [])
-var dr8 = new Doctor("Yoshi", GENERALE, [])
-var dr9 = new Doctor("Strutzi", ORTOPEDIA, [])
-var dr10 = new Doctor("Toad", OCULISTICS, [])
-var dr11 = new Doctor("Donkey Kong", GENERALE, [])
-var dr12 = new Doctor("Diddy Kong", PEDIATRIA, [])
-var dr13 = new Doctor("Rosalinda", GENERALE, [])
-var dr14 = new Doctor("Sfavillotto", NEUROLOGIA, [])
-var dr15 = new Doctor("Bowser Jr", CARDIOLOGIA, [])
-var dr16 = new Doctor("Re Boo", ONCOLOGIA, [])
-var dr17 = new Doctor("Wart", ONCOLOGIA, [])
-var dr18 = new Doctor("Professor Strambic", GENERALE, [])
-var dr19 = new Doctor("Pipino Piranha ", GENERALE, [])
-var dr20 = new Doctor("Daisy", GENERALE, [])
-var dr21 = new Doctor("Bowser", ORTOPEDIA, [])
-var dr22 = new Doctor("Kamek", OCULISTICS, [])
-var dr23 = new Doctor("Mastro Toad", ORTOPEDIA, [])
-var dr24 = new Doctor("Magikoopa", OCULISTICS, [])
-var dr25 = new Doctor("Pesce Smack", PEDIATRIA, [])
-var dr26 = new Doctor("Tantatalpa", GENERALE, [])
-var dr27 = new Doctor("Tartosso", CARDIOLOGIA, [])
-var dr28 = new Doctor("Pianta Piranha", OCULISTICS, [])
-var dr29 = new Doctor("Torcibruco", GENERALE, [])
-var dr30 = new Doctor("Snifit", PEDIATRIA, [])
+var dr1 = new Doctor("Mario", NEUROLOGY, [])
+var dr2 = new Doctor("Luigi", ONCOLOGY, [])
+var dr3 = new Doctor("Peach", CARDIOLOGY, [])
+var dr4 = new Doctor("Todette", PEDIATRICS, [])
+var dr5 = new Doctor("Wario", NEUROLOGY, [])
+var dr6 = new Doctor("Waluigi", ONCOLOGY, [])
+var dr7 = new Doctor("Principessa Daisy", ONCOLOGY, [])
+var dr8 = new Doctor("Yoshi", GENERAL, [])
+var dr9 = new Doctor("Strutzi", ORTHOPEDICS, [])
+var dr10 = new Doctor("Toad", OPHTHALMOLOGY, [])
+var dr11 = new Doctor("Donkey Kong", GENERAL, [])
+var dr12 = new Doctor("Diddy Kong", PEDIATRICS, [])
+var dr13 = new Doctor("Rosalinda", GENERAL, [])
+var dr14 = new Doctor("Sfavillotto", NEUROLOGY, [])
+var dr15 = new Doctor("Bowser Jr", CARDIOLOGY, [])
+var dr16 = new Doctor("Re Boo", ONCOLOGY, [])
+var dr17 = new Doctor("Wart", ONCOLOGY, [])
+var dr18 = new Doctor("Professor Strambic", GENERAL, [])
+var dr19 = new Doctor("Pipino Piranha ", GENERAL, [])
+var dr20 = new Doctor("Daisy", GENERAL, [])
+var dr21 = new Doctor("Bowser", ORTHOPEDICS, [])
+var dr22 = new Doctor("Kamek", OPHTHALMOLOGY, [])
+var dr23 = new Doctor("Mastro Toad", ORTHOPEDICS, [])
+var dr24 = new Doctor("Magikoopa", OPHTHALMOLOGY, [])
+var dr25 = new Doctor("Pesce Smack", PEDIATRICS, [])
+var dr26 = new Doctor("Tantatalpa", GENERAL, [])
+var dr27 = new Doctor("Tartosso", CARDIOLOGY, [])
+var dr28 = new Doctor("Pianta Piranha", OPHTHALMOLOGY, [])
+var dr29 = new Doctor("Torcibruco", GENERAL, [])
+var dr30 = new Doctor("Snifit", PEDIATRICS, [])
 
 var matOp1 = new Materials(4, 2, 3, 1)
 var matOp2 = new Materials(2, 3, 2, 0)
@@ -346,42 +346,50 @@ var p6 = new Patient("Dottor Fato", [op78, op7, op9, op96])
 var p7 = new Patient("Fabbricante di Bambole", [op12, op13, op14, op15, op102])
 var p8 = new Patient("Flah Nero", [op16, op18, op118])
 var p9 = new Patient("Arrow", [op20, op21, op31, op43, op63, op72, op71])
-var p10 = new Patient("Cappuccio Rosso", [op22, op23, op55, op54])
+var p10 = new Patient("Cappuccio Rosso", [op22, op23, op55])
 var p11 = new Patient("Carmine Falcone", [op35, op36, op37, op59, op54, op74, op75])
 var p12 = new Patient("Catwoman", [op26, op27])
 var p13 = new Patient("Clayface", [op25, op49, op67, op76, op84, op85, op88])
-var p14 = new Patient("Deadshot", [op94, op95, op97, op100, op109])
+var p14 = new Patient("Deadshot", [op94, op95, op97, op100])
 var p15 = new Patient("Pinguino", [op107, op101, op103, op104])
 var p16 = new Patient("Enigmista", [op28, op29, op30])
 var p17 = new Patient("James Gordon", [op33, op39, op40, op123, op124])
 var p18 = new Patient("Joker", [op111, op112, op113, op117, op127])
-var p19 = new Patient("Miles Clancy O'Hara", [op121, op122, op50, op60, op68])
+var p19 = new Patient("Miles Clancy O'Hara", [op121, op50, op60, op68])
 var p20 = new Patient("Poison Ivy", [op41, op42, op44, op46])
 var p21 = new Patient("Ra's al Ghul", [op47, op51, op52, op53])
-var p22 = new Patient("Harley Quinn", [op129, op128, op127, op126])
-var p23 = new Patient("Jimmy Olsen", [op114, op115, op116, op119, op102])
-var p24 = new Patient("Kara Zor-El", [op122, op125])
-var p25 = new Patient("Clark Kent", [op57, op58, op59, op61])
+var p22 = new Patient("Harley Quinn", [op129, op128, op126])
+var p23 = new Patient("Jimmy Olsen", [op114, op115, op116, op119])
+var p24 = new Patient("Kara Zor-El", [op122, op125, op120])
+var p25 = new Patient("Clark Kent", [op57, op58, op61])
 var p26 = new Patient("Lex Luthor", [op62, op64, op65, op66, op69])
-var p27 = new Patient("Mister Mxyzptlk", [op70, op73, op75])
-var p28 = new Patient("Generale Zod", [op77, op80, op90, op89, op99])
+var p27 = new Patient("Mister Mxyzptlk", [op70, op73])
+var p28 = new Patient("GENERAL Zod", [op77, op80, op90, op89, op99])
 var p29 = new Patient("Perry White", [op87, op86, op83])
 var p30 = new Patient("Dottor Cyber", [op81, op82, op91, op110])
 var p31 = new Patient("Nemesis", [op92, op93, op98, op108])
 var p32 = new Patient("Wonder Woman", [op109, op106, op105, op24])
 
-var doctors = [dr1, dr2, dr3, dr4, dr5, dr6, dr7, dr8, dr9, dr10, dr11, dr12, dr13, dr14, dr15, dr16, dr17, dr18, dr19, dr20,
-        dr21, dr22, dr23, dr24, dr25, dr26, dr27, dr28, dr29, dr30]
+// var doctors = [dr1, dr2, dr3, dr4, dr5, dr6, dr7, dr8, dr9, dr10, 
+        // dr11, dr12, dr13, dr14, dr15, dr16, dr17, dr18, dr19, dr20, 
+        // dr21, dr22, dr23, dr24, dr25, dr26, dr27, dr28, dr29, dr30]
 
-var oper = [op1, op2, op3, op4, op5, op6, op7, op8, op9, op10, op11, op12, op13, op14, op15, op16, op17, op18, op19, op20,
-        op21, op22, op23, op24, op25, op26, op27, op28, op29, op30, op31, op32, op33, op34, op35, op36, op37, op38, op39, op40,
-        op41, op42, op43, op44, op45, op46, op47, op48, op49, op50, op51, op52, op53, op54, op55, op56, op57, op58, op59, op60,
-        op61, op62, op63, op64, op65, op66, op67, op68, op69, op70, op71, op72, op73, op74, op75, op76, op77, op78, op79, op80,
-        op81, op82, op83, op84, op85, op86, op87, op88, op89, op90, op91, op92, op93, op94, op95, op96, op97, op98, op99, op100,
-        op101, op102, op103, op104, op105, op106, op107, op108, op109, op110, op111, op112, op113, op114, op115, op116, op117, op118, op119, op120,
-        op121, op122, op123, op124, op125, op126, op127, op128, op129]
+// var oper = [op1, op2, op3, op4, op5, op6, op7, op8, op9, op10, 
+//         op11, op12, op13, op14, op15, op16, op17, op18, op19, op20,
+//         op21, op22, op23, op24, op25, op26, op27, op28, op29, op30, 
+//         op31, op32, op33, op34, op35, op36, op37, op38, op39, op40,
+//         op41, op42, op43, op44, op45, op46, op47, op48, op49, op50, 
+//         op51, op52, op53, op54, op55, op56, op57, op58, op59, op60,
+//         op61, op62, op63, op64, op65, op66, op67, op68, op69, op70, 
+//         op71, op72, op73, op74, op75, op76, op77, op78, op79, op80,
+//         op81, op82, op83, op84, op85, op86, op87, op88, op89, op90, 
+//         op91, op92, op93, op94, op95, op96, op97, op98, op99, op100,
+//         op101, op102, op103, op104, op105, op106, op107, op108, op109, op110, 
+//         op111, op112, op113, op114, op115, op116, op117, op118, op119, op120,
+//         op121, op122, op123, op124, op125, op126, op127, op128, op129]
 
-var patients = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20,
+var patients = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, 
+        p11, p12, p13, p14, p15, p16, p17, p18, p19, p20,
         p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32]
 
 // for(let dr of doctors){
@@ -392,15 +400,15 @@ var patients = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15
 //     }
 // }
 
-for (let patient of patients) {
-    for (let o of patient.operationsList) {
-        for (let dr of doctors) {
-            if (o.doctor == dr) {
-                dr.operations.push(o)
-            }
-        }
-    }
-}
+// for (let patient of patients) {
+//     for (let o of patient.operationsList) {
+//         for (let dr of doctors) {
+//             if (o.doctor == dr) {
+//                 dr.operations.push(o)
+//             }
+//         }
+//     }
+// }
 
 
 var d = document.getElementById("doctors")
@@ -433,10 +441,6 @@ function dpView() {
         else
             g.style.display = "none"
     }
-
-    // var v = document.getElementsByClassName("depLinks")
-    // v.height = 50;
-    // chiudi()
 }
 
 function mView() {

@@ -1,9 +1,8 @@
-console.log("ciao")
-
 function setCanvas(canvas){
     canvas.width = 500;
     canvas.height = 500;
 }
+
 var cardiologiaCanvas = document.getElementById("cardiologiaCanvas");
 var oncologiaCanvas = document.getElementById("oncologiaCanvas");
 var neurologiaCanvas = document.getElementById("neurologiaCanvas");
@@ -11,287 +10,304 @@ var oculisticChart = document.getElementById("oculisticCanvas");
 var pediatriaChart = document.getElementById("pediatriaCanvas");
 var generalChart = document.getElementById("generalCanvas");
 var ortopediaChart = document.getElementById("ortopediaCanvas");
-// cardiologiaCanvas.width = 500;
-// cardiologiaCanvas.height = 500;
 
-var canvas = [cardiologiaCanvas, oncologiaCanvas, neurologiaCanvas, oculisticChart, pediatriaChart, generalChart, ortopediaChart]
+var canvas = [cardiologiaCanvas, 
+        oncologiaCanvas, 
+        neurologiaCanvas, 
+        oculisticChart, 
+        pediatriaChart, 
+        generalChart, 
+        ortopediaChart]
 
 for(let c of canvas){
     setCanvas(c)
 }
 
-function fillColor(mainT, t1, t2, datas){
+function fillColor(options, datas){
     var colors = []
-    if(mainT == 0){
+    if(options.mainT == 0){
         let red = 255
         for(let i = 0; i < datas.length; i++){
-            let c = "rgb(" + red +", " + t1 + ", " + t2 + ")"
+            let c = "rgb(" + red +", " + options.t1 + ", " + options.t2 + ")"
             colors.push(c)
             if(red > 30)
                 red -=30
             else
-                t2 -=20
+                options.t2 -=20
         }
     }
-    else if(mainT == 1){
+    else if(options.mainT == 1){
         let green = 255
         for(let i = 0; i < datas.length; i++){
-            let c = "rgb(" + t1 +", " + green + ", " + t2 + ")"
+            let c = "rgb(" + options.t1 +", " + green + ", " + options.t2 + ")"
             colors.push(c)
             if(green > 30)
                 green -= 30
             else
-                t2 += 10
+                options.t2 += 10
         }
     }
     else{
         let blue = 255
         for(let i = 0; i < datas.length; i++){
-            let c = "rgb(" + t1 +", " + t2 + ", " + blue + ")"
+            let c = "rgb(" + options.t1 +", " + options.t2 + ", " + blue + ")"
             colors.push(c)
             if(blue > 50)
                 blue -=50
             else
-                t1 += 20
+                options.t1 += 20
         }
     }
     return colors
 }
-// neurologiaCanvas.width = 500;
-// neurologiaCanvas.height = 500;
-
-// oncologiaCanvas.width = 500;
-// oncologiaCanvas.height = 500;
 
 var ctx = cardiologiaCanvas.getContext("2d");
 
 function drawLine(ctx, startX, startY, endX, endY){
-    ctx.beginPath();
-    ctx.moveTo(startX,startY);
-    ctx.lineTo(endX,endY);
-    ctx.stroke();
+    ctx.beginPath()
+    ctx.moveTo(startX, startY)
+    ctx.lineTo(endX, endY)
+    ctx.stroke()
 }
-
 
 function drawArc(ctx, centerX, centerY, radius, startAngle, endAngle){
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-    ctx.stroke();
+    ctx.beginPath()
+    ctx.arc(centerX, centerY, radius, startAngle, endAngle)
+    ctx.stroke()
 }
 
 
-function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color ){
-    ctx.fillStyle = color;
-    ctx.beginPath();
-    ctx.moveTo(centerX,centerY);
-    ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-    ctx.closePath();
-    ctx.fill();
+function drawPieSlice(ctx, centerX, centerY, radius, startAngle, endAngle, color){
+    ctx.fillStyle = color
+    ctx.beginPath()
+    ctx.moveTo(centerX, centerY)
+    ctx.arc(centerX, centerY, radius, startAngle, endAngle)
+    ctx.closePath()
+    ctx.fill()
 }
 
-var Piechart = function(options, department, idLegend){
-    this.options = options;
-    this.canvas = options.canvas;
-    this.ctx = this.canvas.getContext("2d");
-    this.colors = options.colors;
+var Piechart = function(options, department, mainColor, idLegend){
+    this.options = options
+    this.canvas = options.canvas
+    this.ctx = this.canvas.getContext("2d")
+    this.department = department
+    this.mainColor = mainColor
+    this.idLegend = idLegend
  
     this.draw = function(){
 
-        var total_value = 0;
-        var color_index = 0;
-        var validData = [];
+        var total_value = 0
+        var color_index = 0
+        var validData = []
 
-        for (var dr of this.options.data){
-            if(dr.department === department){
-                total_value += dr.operations.length;
+        for(let patient of this.options.data){
+            for(let operation of patient.operationsList){
+                if(operation.doctor.department == this.department){
+                    if(!validData.includes(operation.doctor)){
+                        validData.push(operation.doctor)
+                    }
 
-                // var val = this.options.data[dr];
-                validData.push(dr);
+                    // NON MI SERVER INSERIRE LE OPERAZIONI DI NUOVO PERCHè LE HO GIà 
+                    // INSERITE DISEGNANDO IL GRAFICO PRECEDENTE
+                    // let index = validData.indexOf(operation.doctor)
+                    // validData[index].operations.push(operation)
+                }
             }
         }
-
-        var start_angle = 0;
         
-        for (var dr of validData){
+        for(let doctor of validData){
+            total_value += doctor.operations.length
+        }
 
-            var dr_operations = dr.operations.length
-            // for(var o of dr.operations){
-            //     dr_operations += o
-            // }
+        var colors = fillColor(this.mainColor, validData)
 
-            var slice_angle = 2 * Math.PI * dr_operations / total_value;
+        var start_angle = 0
+        
+        for (let dr of validData){
+
+            let dr_operations = dr.operations.length
+
+            let slice_angle = 2 * Math.PI * dr_operations / total_value
  
             drawPieSlice(
                 this.ctx,
-                this.canvas.width/2,
-                this.canvas.height/2,
-                Math.min(this.canvas.width/2,this.canvas.height/2),
+                this.canvas.width / 2,
+                this.canvas.height / 2,
+                Math.min(this.canvas.width / 2, this.canvas.height / 2),
                 start_angle,
-                start_angle+slice_angle,
-                this.colors[color_index%this.colors.length]
+                start_angle + slice_angle,
+                colors[color_index % colors.length]
             );
  
-            start_angle += slice_angle;
-            color_index++;
+            start_angle += slice_angle
+            color_index++
         }
  
-        //drawing a white circle over the chart
-        //to create the doughnut chart
         if (this.options.doughnutHoleSize){
             drawPieSlice(
                 this.ctx,
-                this.canvas.width/2,
-                this.canvas.height/2,
-                this.options.doughnutHoleSize * Math.min(this.canvas.width/2,this.canvas.height/2),
+                this.canvas.width / 2,
+                this.canvas.height / 2,
+                this.options.doughnutHoleSize * Math.min(this.canvas.width / 2, this.canvas.height / 2),
                 0,
                 2 * Math.PI,
                 "white"
-            );
+            )
         }
 
-        start_angle = 0;
+        start_angle = 0
 
-        for (var dr of validData){
-            var dr_operations = dr.operations.length
-            // for(var o of dr.operations){
-            //     dr_operations += o
-            // }
+        for (let dr of validData){
+            let dr_operations = dr.operations.length
 
-            slice_angle = 2 * Math.PI * dr_operations / total_value;
-            var pieRadius = Math.min(this.canvas.width/2,this.canvas.height/2);
-            var labelX =
-                this.canvas.width/2 + (pieRadius / 2) *
-                Math.cos(start_angle + slice_angle/2);
-            var labelY =
-                this.canvas.height/2 + (pieRadius / 2) *
-                Math.sin(start_angle + slice_angle/2);
+            slice_angle = 2 * Math.PI * dr_operations / total_value
+            let pieRadius = Math.min(this.canvas.width / 2, this.canvas.height / 2)
+            let labelX =
+                this.canvas.width / 2 + (pieRadius / 2) *
+                Math.cos(start_angle + slice_angle / 2)
+            let labelY =
+                this.canvas.height / 2 + (pieRadius / 2) *
+                Math.sin(start_angle + slice_angle / 2)
          
             if (this.options.doughnutHoleSize){
-                var offset = (pieRadius * this.options.doughnutHoleSize ) / 2;
+                let offset = (pieRadius * this.options.doughnutHoleSize ) / 2
                 labelX =
                     this.canvas.width/2 + (offset + pieRadius / 2) *
-                    Math.cos(start_angle + slice_angle/2);
+                    Math.cos(start_angle + slice_angle / 2)
                 labelY =
                     this.canvas.height/2 + (offset + pieRadius / 2) *
-                    Math.sin(start_angle + slice_angle/2);               
+                    Math.sin(start_angle + slice_angle / 2)              
             }
          
-            var labelText = Math.round(100 * dr_operations / total_value);
-            this.ctx.fillStyle = "white";
-            this.ctx.font = "bold 20px Arial";
-            this.ctx.fillText(labelText+"%", labelX,labelY);
-            start_angle += slice_angle;
+            var labelText = Math.round(100 * dr_operations / total_value)
+            this.ctx.fillStyle = "white"
+            this.ctx.font = "bold 20px Arial"
+            this.ctx.fillText(labelText + " %", labelX, labelY)
+            start_angle += slice_angle
         }
 
-        sliceIndex = 0;
-        var legend = document.querySelector("legend[for='" + idLegend + "']");
-        var ul = document.createElement("ul");
-        legend.append(ul);
-        for (var dr of validData){
-            var li = document.createElement("li");
-            li.style.listStyle = "none";
-            li.style.borderLeft = "20px solid "+this.colors[sliceIndex%this.colors.length];
-            li.style.padding = "5px";
-            li.textContent = dr.name;
-            ul.append(li);
-            sliceIndex++;
+        sliceIndex = 0
+        var legend = document.querySelector("legend[for='" + idLegend + "']")
+        var ul = document.createElement("ul")
+        legend.append(ul)
+        for (let dr of validData){
+            let li = document.createElement("li")
+            li.style.listStyle = "none"
+            li.style.borderLeft = "20px solid " + colors[sliceIndex % colors.length]
+            li.style.padding = "5px"
+            li.textContent = dr.name
+            ul.append(li)
+            sliceIndex++
         }
  
     }
 }
 
-
-// torta
 var cardiologiaChart = new Piechart(
     {
-        canvas:cardiologiaCanvas,
-        data:doctors,
-        colors:fillColor(0, 100, 100, doctors)
-        // colors:["rgb(255, 75, 75)","rgb(225, 75, 75)", "rgb(195, 75, 75)","rgb(165, 75, 75)", "rgb(135, 75, 75)"],
+        canvas : cardiologiaCanvas,
+        data : patients,
+        doughnutHoleSize:0.4
     },
-    "Cardiologia",
+    CARDIOLOGY,
+    {
+        mainT : 0,
+        t1 : 100,
+        t2 : 100
+    },
     "cardiologiaCanvas"
 );
 
 var neurologiaChart = new Piechart(
     {
         canvas:neurologiaCanvas,
-        data:doctors,
-        colors:fillColor(1, 100, 100, doctors)
-        // colors:["rgb(75, 255, 75)","rgb(75, 225, 75)", "rgb(75, 195, 75)","rgb(75, 165, 75)", "rgb(75, 135, 75)"],
+        data:patients,
+        doughnutHoleSize:0.4
     },
-    "Neurologia",
+    NEUROLOGY,
+    {
+        mainT : 1,
+        t1 : 100,
+        t2 : 100
+    },
     "neurologiaCanvas"
 );
 
 var oncologiaChart = new Piechart(
     {
         canvas:oncologiaCanvas,
-        data:doctors,
-        colors:fillColor(2, 100, 100, doctors)
-        // colors:["rgb(75, 75, 255)","rgb(75, 75, 225)", "rgb(75, 75, 195)","rgb(75, 75, 165)", "rgb(75, 75, 135)"],
+        data:patients,
+        doughnutHoleSize:0.4
     },
-    "Oncologia",
+    ONCOLOGY,
+    {
+        mainT : 2,
+        t1 : 100,
+        t2 : 100
+    },
     "oncologiaCanvas"
 );
 var oculisticChart = new Piechart(
     {
         canvas:oculisticCanvas,
-        data:doctors,
-        colors:fillColor(0, 120, 80, doctors)
-        // colors:["rgb(75, 75, 255)","rgb(75, 75, 225)", "rgb(75, 75, 195)","rgb(75, 75, 165)", "rgb(75, 75, 135)"],
+        data:patients,
+        doughnutHoleSize:0.4
     },
-    "Oculistica",
+    OPHTHALMOLOGY,
+    {
+        mainT : 0,
+        t1 : 120,
+        t2 : 80
+    },
     "oculisticCanvas"
 );
 var pediatriaChart = new Piechart(
     {
         canvas:pediatriaCanvas,
-        data:doctors,
-        colors:fillColor(1, 120, 80, doctors)
-        // colors:["rgb(75, 75, 255)","rgb(75, 75, 225)", "rgb(75, 75, 195)","rgb(75, 75, 165)", "rgb(75, 75, 135)"],
+        data:patients,
+        doughnutHoleSize:0.4
     },
-    "Pediatria",
+    PEDIATRICS,
+    {
+        mainT : 1,
+        t1 : 120,
+        t2 : 80
+    },
     "pediatriaCanvas"
 );
 var generalChart = new Piechart(
     {
         canvas:generalCanvas,
-        data:doctors,
-        colors:fillColor(2, 120, 80, doctors)
-        // colors:["rgb(75, 75, 255)","rgb(75, 75, 225)", "rgb(75, 75, 195)","rgb(75, 75, 165)", "rgb(75, 75, 135)"],
+        data:patients,
+        doughnutHoleSize:0.4
     },
-    "Generale",
+    GENERAL,
+    {
+        mainT : 2,
+        t1 : 120,
+        t2 : 80
+    },
     "generalCanvas"
 );
 var ortopediaChart = new Piechart(
     {
         canvas:ortopediaCanvas,
-        data:doctors,
-        colors:fillColor(0, 200, 200, doctors)
-        // colors:["rgb(75, 75, 255)","rgb(75, 75, 225)", "rgb(75, 75, 195)","rgb(75, 75, 165)", "rgb(75, 75, 135)"],
+        data:patients,
+        doughnutHoleSize:0.4
     },
-    "Ortopedia",
+    ORTHOPEDICS,
+    {
+        mainT : 0,
+        t1 : 200,
+        t2 : 200
+    },
     "ortopediaCanvas"
 );
 
-cardiologiaChart.draw();
-neurologiaChart.draw();
-oncologiaChart.draw();
-oculisticChart.draw();
-pediatriaChart.draw();
-generalChart.draw();
-ortopediaChart.draw();
-
-
-
-// // Ciambella
-// var myDougnutChart2 = new Piechart(
-//     {
-//         canvas:myCanvas,
-//         data:myVinyls2,
-//         colors:["#fde23e","#f16e23", "#57d9ff","#937e88"],
-//         doughnutHoleSize:0.5
-//     }
-// );
-// myDougnutChart2.draw();
+cardiologiaChart.draw()
+neurologiaChart.draw()
+oncologiaChart.draw()
+oculisticChart.draw()
+pediatriaChart.draw()
+generalChart.draw()
+ortopediaChart.draw()
