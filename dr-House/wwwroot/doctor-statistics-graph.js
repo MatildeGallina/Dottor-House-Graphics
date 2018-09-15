@@ -85,6 +85,9 @@ var Barchart = function (options) {
         var numberOfBars = doctors.length;
         var barSize = (canvasActualWidth - (5 * this.options.padding)) / numberOfBars;
 
+        var div = document.getElementById("doctorsName")
+        div.style.width = canvasActualWidth
+
         for (let dr of doctors) {
             let dr_operations = dr.operations.length
             let statistics = [0, 0, 0]
@@ -129,6 +132,15 @@ var Barchart = function (options) {
                 barIndex++;
             }
 
+
+            let p = document.createElement("p");
+            // p.style.display = "inline-block"
+            // p.style.transform = "rotate(90deg)"
+            // p.style.fontSize = "14px";
+            p.textContent = dr.name;
+            p.style.padding = "0";
+            div.appendChild(p);
+            
             // var labelText = dr.name;
             // this.ctx.fillStyle = "black";
             // this.ctx.font = "bold 20px Arial";

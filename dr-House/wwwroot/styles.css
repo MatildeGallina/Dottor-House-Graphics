@@ -10,13 +10,13 @@
     min-height: 4em;
 }
 
-.container, .carousel-inner{
+/* .container, .carousel-inner{
     display: flex;
     flex-direction: row;
     margin: auto 0;
     justify-content: space-evenly;
     align-items: top;
-}
+} */
 
 nav > ul.navbar-fixed-top{
     display: flex;
@@ -59,13 +59,7 @@ nav a > img{
     margin: 2.5em;
 }
 
-/* .data-wrapper > div, .data-wrapper p, .data-wrapper input, #year, .data-wrapper form, .data-wrapper form > div, .canvas-wrapper > div > h2, .canvas-wrapper > div > ul{
-    display: inline-block;
-} */
-
 .canvas-wrapper{
-    /* align-items: top;
-    padding: 5em 7em; */
     display: inline-block;
     padding-top: 6em;
     width: 80%;
@@ -87,15 +81,14 @@ section > hr{
 }
 
 .depLinks:hover {
-    height: 150px;
+    height: 350px;
     background: #f8f8f877;
-    /* background: rgba(211, 211, 211, 0.459) */
 }
 
-.depLinks:hover > a{
+/* .depLinks:hover > a{
     background-color: #f8f8f877;
     border-radius: 0.7em;
-}
+} */
 
 section > h2{
     align-content: center;
@@ -110,8 +103,102 @@ section > h2{
 }
 
 #depUl > li{
-    list-style: no;
+    list-style: none;
+    color: black;
+    font-size: 1.5rem;
 }
+
+/* #doctors > .canvas-width > div{
+    width: 300vw;
+    height: 150px;
+    margin: 5px 0 5px 50px;
+    background-color: lightgray;
+} */
+
+#pizza{
+    width: 920px;
+    height: 150px;
+    margin-left:50px; 
+}
+
+#doctorsName{
+    height: 920px;
+    width: 150px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    background-color: lightgreen;
+    position: relative;
+    top: -375px;
+    left: 375px;
+
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    /* width: 300vw;
+    margin-left: 50px; */
+}
+
+#doctors #pizza > #doctorsName > p{
+    padding: 0;
+}
+
+/*********************************************************************************/
+/* 
+#doctors > .canvas-wrapper > div{
+    height: 0;
+    width: 100px;
+    ****************************
+    *******margin: 0 50px 100px;
+    *******max-height: 1000px;
+    *******max-width: 100px;
+    *******margin-left: 45px;
+    *******padding-top: 25px;
+    *******
+    *******-webkit-transform: rotate(270deg);
+    *******-moz-transform: rotate(270deg);
+    *******-o-transform: rotate(270deg);
+    *******-ms-transform: rotate(270deg);
+    *******transform: rotate(270deg);
+    **********************
+}
+
+#doctorsName{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: none;
+    
+    width: 100px;
+    height: 920px;
+    background-color: lightgray;
+   ***** ****
+   ***** -webkit-transform: rotate(270deg);
+   ***** -moz-transform: rotate(270deg);
+   ***** -o-transform: rotate(270deg);
+   ***** -ms-transform: rotate(270deg);
+   ***** transform: rotate(270deg);
+   ***** ****
+    align-items: stretch;
+    align-content: stretch;
+}
+
+#doctorsName > div {
+    margin: auto 0;
+    padding: 0 0 5 0;
+    width: 100px;
+    font-size: 14px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+} */
+
+/*********************************************************************************/
+
 /* 
 #depUl:hover{
     position: absolute;
