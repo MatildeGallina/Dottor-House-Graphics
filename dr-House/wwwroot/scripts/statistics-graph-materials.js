@@ -133,7 +133,7 @@ var Barchart = function (options) {
             //writing grid markers
             this.ctx.save()
             this.ctx.fillStyle = this.options.gridColor
-            this.ctx.font = "bold 10px Arial"
+            this.ctx.font = "12px Arial"
             this.ctx.fillText(gridValue, this.canvas.width - gridX + 2, 10)
             this.ctx.restore()
 

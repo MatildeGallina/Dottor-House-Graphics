@@ -1,6 +1,6 @@
 var myCanvas = document.getElementById("drCanvas");
 myCanvas.width = 1000;
-myCanvas.height = 300;
+myCanvas.height = 400;
 
 var ctx = myCanvas.getContext("2d");
 
@@ -61,7 +61,7 @@ var Barchart = function (options) {
             //writing grid markers
             this.ctx.save();
             this.ctx.fillStyle = this.options.gridColor;
-            this.ctx.font = "bold 10px Arial";
+            this.ctx.font = "15px Arial";
             this.ctx.fillText(gridValue, 10, gridY - 2);
             this.ctx.restore();
 

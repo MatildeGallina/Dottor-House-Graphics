@@ -8,7 +8,7 @@
     <title>Dottor House Graphics</title>
 
     <link rel="stylesheet" href="bootstrap\dist\css\bootstrap.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
 <!-- 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
@@ -19,47 +19,47 @@
         <ul class="navbar nav navbar-nav navbar-fixed-top">
             <li>
                 <a onclick="nascondi()" style="height: 50px;">
-                    <img src="home-icon.png" height="25px" />DOTTOR HOUSE HOSPITAL
+                    <img src="images/home-icon.png" height="25px" />DOTTOR HOUSE HOSPITAL
                 </a>
             </li>
             <li>
-                <a href="#doctors" onclick="dgView()">DOCTORS</a>
+                <a id="nav-doc" href="#doctors">DOCTORS</a>
             </li>
             <li class="depLinks" onmouseover="comparsa()" onmouseout="chiudi()">
-                <a href="#departments" onclick="dpView()">DEPARTMENTS</a>
+                <a id="nav-dep" href="#departments">DEPARTMENTS</a>
                 <ul id="depUl">
-                    <li onclick="dpView()">
+                    <li id="nav-dep-car">
                         <a href="#cardiology">CARDIOLOGY</a>
                     </li>
-                    <li onclick="dpView()">
+                    <li id="nav-dep-neu">
                         <a href="#neurology">NEUROLOGY</a>
                     </li>
-                    <li onclick="dpView()">
+                    <li id="nav-dep-onco">
                         <a href="#oncology">ONCOLOGY</a>
                     </li>
-                    <li onclick="dpView()">
+                    <li id="nav-dep-oph">
                         <a href="#ophthalmology">OPHTHALMOLOGY</a>
                     </li>
-                    <li onclick="dpView()">
+                    <li id="nav-dep-ped">
                         <a href="#pediatrics">PEDIATRICS</a>
                     </li>
-                    <li onclick="dpView()">
+                    <li  id="nav-dep-gen">
                         <a href="#general">GENERAL</a>
                     </li>
-                    <li onclick="dpView()">
-                        <a href="#orthopedics">ORTHOPEDICS</a>
+                    <li>
+                        <a id="nav-dep-or" href="#orthopedics">ORTHOPEDICS</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#materials" onclick="mView()">MATERIALS</a>
+                <a  id="nav-mat" href="#materials">MATERIALS</a>
             </li>
         </ul>
     </nav>
 
 
     <main>
-        <header>
+        <header id="hd">
             <h1 id="title">Dottor House Graphics</h1>
         </header>
 
@@ -81,7 +81,7 @@
         </section>
 
         <section id="departments">
-            <h2>Statistche operazioni per dipartimento</h2>
+            <h2>Statistiche operazioni per dipartimento</h2>
 
             <hr>
 
@@ -130,7 +130,7 @@
         </section>
 
         <section id="materials">
-            <h2>Statistche materiali utilizzati</h2>
+            <h2>Statistiche materiali utilizzati</h2>
 
             <hr>
 
@@ -235,10 +235,10 @@
         </div>
     </footer>
 
-    <script src="data.js"></script>
-    <script src="doctor-statistics-graph.js"></script>
-    <script src="department-statistics-graph.js"></script>
-    <script src="materials-statistics-graph.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/statistics-graph-doctor.js"></script>
+    <script src="scripts/statistics-graph-department.js"></script>
+    <script src="scripts/statistics-graph-materials.js"></script>
 </body>
 
 </html>

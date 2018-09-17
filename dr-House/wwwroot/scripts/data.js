@@ -415,40 +415,71 @@ var d = document.getElementById("doctors")
 var dp = document.getElementById("departments")
 var m = document.getElementById("materials")
 
+
+
 var graphics = [d, dp, m]
 
+var nav_doctors = document.getElementById("nav-doc")
+var nav_department = document.getElementById("nav-dep")
+var nav_departments_car = document.getElementById("nav-dep-car")
+var nav_departments_neu = document.getElementById("nav-dep-neu")
+var nav_departments_onco = document.getElementById("nav-dep-onco")
+var nav_departments_oph = document.getElementById("nav-dep-oph")
+var nav_departments_ped = document.getElementById("nav-dep-ped")
+var nav_departments_gen = document.getElementById("nav-dep-gen")
+var nav_departments_or = document.getElementById("nav-dep-or")
+var nav_departments = [
+        nav_department, 
+        nav_departments_car,
+        nav_departments_neu,
+        nav_departments_onco,
+        nav_departments_oph,
+        nav_departments_ped,
+        nav_departments_gen,
+        nav_departments_or
+    ]
+var nav_materials = document.getElementById("nav-mat")
+
+nav_doctors.onclick = function() { ViewSection('doctors') }
+for(let nav_li of nav_departments){
+    nav_li.onclick = function() { ViewSection('departments') }
+}
+nav_materials.onclick = function() { ViewSection('materials') }
+
+function ViewSection(sectionId) {
+    hideBackgroudImage()
+
+    for (let g of graphics) {
+        if (g.id == sectionId)
+            g.style.display = "block"
+        else
+            g.style.display = "none"
+    }
+}
+
+function hideBackgroudImage(){
+    var header = document.getElementById("hd")
+    var h1 = document.getElementById("title")
+    header.style.backgroundImage = "none"
+    header.style.minHeight = "0"
+    h1.style.minHeight = "0"
+}
+
+function setBackgroudImage(){
+    var header = document.getElementById("hd")
+    var h1 = document.getElementById("title")
+    header.style.backgroundImage = "url(../images/cover.jpg)"
+    header.style.backgroundSize = "100%"
+    header.style.backgroundRepeat = "no-repeat"
+    header.style.minHeight = "40em"
+    h1.style.minHeight = "4em"
+}
 
 function nascondi() {
+    setBackgroudImage()
+
     for (let g of graphics) {
         g.style.display = "none"
-        console.log(g)
-    }
-}
-
-function dgView() {
-    for (let g of graphics) {
-        if (g == d)
-            g.style.display = "block"
-        else
-            g.style.display = "none"
-    }
-}
-
-function dpView() {
-    for (let g of graphics) {
-        if (g == dp)
-            g.style.display = "block"
-        else
-            g.style.display = "none"
-    }
-}
-
-function mView() {
-    for (let g of graphics) {
-        if (g == m)
-            g.style.display = "block"
-        else
-            g.style.display = "none"
     }
 }
 
