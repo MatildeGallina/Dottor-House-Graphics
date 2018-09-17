@@ -1,3 +1,24 @@
+
+
+
+
+
+
+/* 
+.cover-image{
+    position: absolute;
+    margin-top: 70px;
+} */
+
+
+/********************************************************************/
+header{
+    background-image: url(../images/cover.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-height: 50em
+}
+
 #title{
     margin-top: 10rem;
     align-content: center;
@@ -10,14 +31,6 @@
     min-height: 4em;
 }
 
-/* .container, .carousel-inner{
-    display: flex;
-    flex-direction: row;
-    margin: auto 0;
-    justify-content: space-evenly;
-    align-items: top;
-} */
-
 nav > ul.navbar-fixed-top{
     display: flex;
     flex-direction: row;
@@ -29,40 +42,55 @@ nav a > img{
     margin: 0 10px
 }
 
-#materials{
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-
+.depLinks {
+    height: 50px;
+    transition: height 1.5s;
+    padding: 0;
 }
 
-.data-wrapper{
-    /* display: inline-block;
-    flex-direction: column; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: top;
+.depLinks:hover {
+    height: 350px;
+    background: #f8f8f877;
+    padding: 0;
 }
 
-.filter{
-    display: flex;
+
+#depUl{
+    display: none;
+    width: 100%;
+}
+
+#depUl > li{
+    list-style: none;
+    color: black;
+    margin: 10px auto;
+    font-size: 1.2rem;
+}
+
+/* #depUl[display=flex]{
     flex-direction: column;
-    justify-content: flex-start;
-    border: 10px rgb(221, 220, 220) solid;
-    border-radius: 0.5em;
-    padding: 5em 7em;
-    width: 50%;
+    align-content: center;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%
+} */
+
+#depUl > li > a{
+    color: black;
+    margin: 10px auto;
 }
 
-.filter > div{
-    margin: 2.5em;
+section{
+    margin: 50px auto 7em;
+    width: 80vw;
+    background-color: white;
+    padding: 7em;
 }
 
-.canvas-wrapper{
-    display: inline-block;
-    padding-top: 6em;
-    width: 80%;
+section > h2{
+    align-content: center;
+    font-size: 4rem;
 }
 
 section > hr{
@@ -71,49 +99,25 @@ section > hr{
     background: -webkit-linear-gradient(rgb(0, 0, 0), rgba(255, 255, 255, 0));
 }
 
-.cover-image{
-    position: absolute;
-    margin-top: 70px;
-}
-.depLinks {
-    height: 50px;
-    transition: height 1.5s;
+section > section{
+    width: 80rem;
+    border-bottom: 1px solid;
 }
 
-.depLinks:hover {
-    height: 350px;
-    background: #f8f8f877;
+.canvas{
+    display: inline-block
 }
 
-/* .depLinks:hover > a{
-    background-color: #f8f8f877;
-    border-radius: 0.7em;
-} */
-
-section > h2{
-    align-content: center;
-    font-size: 4rem;
+canvas{
+    display: block
 }
 
-#depUl{
-    display: none;
-    width: 100%;
-    height: 50px;
-    /* transition: height 2s; */
+.canvas-wrapper{
+    display: inline-block;
+    padding-top: 6em;
+    margin: 0 auto;
+    width: 80%;
 }
-
-#depUl > li{
-    list-style: none;
-    color: black;
-    font-size: 1.5rem;
-}
-
-/* #doctors > .canvas-width > div{
-    width: 300vw;
-    height: 150px;
-    margin: 5px 0 5px 50px;
-    background-color: lightgray;
-} */
 
 #pizza{
     width: 920px;
@@ -143,98 +147,79 @@ section > h2{
     margin: 0;
 }
 
-/*********************************************************************************/
-/* 
-#doctors > .canvas-wrapper > div{
-    height: 0;
-    width: 100px;
-    ****************************
-    *******margin: 0 50px 100px;
-    *******max-height: 1000px;
-    *******max-width: 100px;
-    *******margin-left: 45px;
-    *******padding-top: 25px;
-    *******
-    *******-webkit-transform: rotate(270deg);
-    *******-moz-transform: rotate(270deg);
-    *******-o-transform: rotate(270deg);
-    *******-ms-transform: rotate(270deg);
-    *******transform: rotate(270deg);
-    **********************
+#materials{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
 }
 
-#doctorsName{
+#materials .canvas-wrapper{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    border-bottom: none;
-    
-    width: 100px;
-    height: 920px;
-    background-color: lightgray;
-   ***** ****
-   ***** -webkit-transform: rotate(270deg);
-   ***** -moz-transform: rotate(270deg);
-   ***** -o-transform: rotate(270deg);
-   ***** -ms-transform: rotate(270deg);
-   ***** transform: rotate(270deg);
-   ***** ****
-    align-items: stretch;
-    align-content: stretch;
 }
 
-#doctorsName > div {
-    margin: auto 0;
-    padding: 0 0 5 0;
-    width: 100px;
-    font-size: 14px;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
-} */
-
-/*********************************************************************************/
-
-/* 
-#depUl:hover{
-    position: absolute;
-    top: 50px;
-    width: 100%;
-    height: 150px;
-    background: #f8f8f8;
-} */
-
-header{
-    background-image: url(../images/cover.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    min-height: 50em
+#materialsCanvas{
+    margin-right: 1em;
 }
 
-legend{
-    max-width: 50px;
-    display: inline-block;
+.data-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    margin: 20px;
+}
+
+.filter{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    border: 5px rgb(90, 100, 110) solid;
+    border-radius: 0.5em;
+    padding: 3em;
+}
+
+.filter .filter{
+    border: none;
+    padding: 1em;
+}
+
+.filter label{
+    margin: 0 1em;
+}
+
+.filter > form{
+    margin-left: 50%
+}
+
+.data-wrapper form input{
+    padding: 0.5rem;
+}
+
+#prev, #next{
+    background-color: #b0b0b0a4;
+    width: 3em;
+    font-size: 1rem;
+}
+
+#prev:hover, #next:hover{
+    background-color: #b0b0b0;
 }
 
 .legend{
     display: inline-block;
 }
 
-section{
-    margin: 50px auto 7em;
-    /* max-width:800px; */
-    width: 80vw;
-    background-color: white;
-    /* border: 2px gray solid;
-    border-radius: 0.7em; */
-    padding: 7em;
+legend{
+    min-width: 20rem;
+    display: inline-block;
 }
 
-section > section{
-    width: 80rem;
-    border-bottom: 1px solid;
+.legend > ul{
+    display: block;
 }
 
 legend > ul{
@@ -246,22 +231,6 @@ legend > ul > li{
     height: 2em;
 }
 
-.legend > ul{
-    display: block;
-}
-
-canvas{
-    display: block
-}
-.canvas{
-    display: inline-block
-}
-
-/* section > .canvas-wrapper{
-    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-    background: -webkit-linear-gradient(rgb(153, 153, 153), rgba(255, 255, 255, 0));
-} */
-
 .informations{
     display: flex;
     flex-direction: row;
@@ -269,7 +238,6 @@ canvas{
     justify-content: space-evenly;
     align-items: center;
     background-color: grey;
-    /* height: 100px; */
 }
 
 .subFooter{

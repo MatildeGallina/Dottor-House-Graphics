@@ -1,6 +1,6 @@
 var materialsCanvas = document.getElementById("materialsCanvas");
-materialsCanvas.width = 800;
-materialsCanvas.height = 300;
+materialsCanvas.width = 400;
+materialsCanvas.height = 200;
 
 var ctx = materialsCanvas.getContext("2d");
 
@@ -19,9 +19,10 @@ function updateYear(year) {
 }
 updateYear(year)
 
-
-
 var filter = []
+Array.prototype.removeEl = function (el) {
+    this.splice(filter.indexOf(el), 1);
+};
 
 function drawLine(ctx, startX, startY, endX, endY, color) {
     ctx.save();
@@ -133,7 +134,7 @@ var Barchart = function (options) {
             //writing grid markers
             this.ctx.save()
             this.ctx.fillStyle = this.options.gridColor
-            this.ctx.font = "12px Arial"
+            this.ctx.font = "10px Arial"
             this.ctx.fillText(gridValue, this.canvas.width - gridX + 2, 10)
             this.ctx.restore()
 
@@ -189,11 +190,11 @@ var Barchart = function (options) {
 var materialsBarchart = new Barchart(
     {
         canvas: materialsCanvas,
-        gridScale: 5,
+        gridScale: 10,
         gridColor: "#ccc",
         // seriesName: "Materials",
         data: patients,
-        colors: ["#a55ca5", "#67b6c7", "#bccd7a", "#eb9743", "#a55cf6"]
+        colors: ["#ce7979", "#7fdac3d7", "#7e8a51", "#974c00", "#a55cf6"]
     }
 );
 
@@ -205,10 +206,12 @@ decClicked()
 
 function succClicked() {
     if (successCB.checked) {
-        filter.splice(0, 0, SUCCESS)
+        // filter.splice(0, 0, SUCCESS)
+        filter.push(SUCCESS)
     }
     else {
-        filter.splice(0, 1)
+        // filter.splice(0, 1)
+        filter.removeEl(SUCCESS)
     }
 
     ctx.clearRect(0, 0, materialsCanvas.width, materialsCanvas.height);
@@ -216,21 +219,30 @@ function succClicked() {
 }
 
 function complicClicked() {
-    if (filter.includes(SUCCESS)) {
-        if (complicationsCB.checked) {
-            filter.splice(1, 0, COMPLICATIONS)
-        }
-        else {
-            filter.splice(1, 1)
-        }
+    // if (filter.includes(SUCCESS)) {
+    //     if (complicationsCB.checked) {
+    //         filter.splice(1, 0, COMPLICATIONS)
+    //     }
+    //     else {
+    //         filter.splice(1, 1)
+    //     }
+    // }
+    // else {
+    //     if (complicationsCB.checked) {
+    //         filter.splice(0, 0, COMPLICATIONS)
+    //     }
+    //     else {
+    //         filter.splice(0, 1)
+    //     }
+    // }
+
+    if (complicationsCB.checked) {
+        // filter.splice(1, 0, COMPLICATIONS)
+        filter.push(COMPLICATIONS)
     }
     else {
-        if (complicationsCB.checked) {
-            filter.splice(0, 0, COMPLICATIONS)
-        }
-        else {
-            filter.splice(0, 1)
-        }
+        // filter.splice(1, 1)
+        filter.removeEl(COMPLICATIONS)
     }
 
     ctx.clearRect(0, 0, materialsCanvas.width, materialsCanvas.height);
@@ -242,7 +254,8 @@ function decClicked() {
         filter.push(DEATH)
     }
     else {
-        filter.pop()
+        // filter.pop()
+        filter.removeEl(DEATH)
     }
 
     ctx.clearRect(0, 0, materialsCanvas.width, materialsCanvas.height);

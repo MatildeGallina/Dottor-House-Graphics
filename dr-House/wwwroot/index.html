@@ -9,9 +9,6 @@
 
     <link rel="stylesheet" href="bootstrap\dist\css\bootstrap.css" />
     <link rel="stylesheet" href="styles/styles.css" />
-<!-- 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 </head>
 
 <body>
@@ -135,32 +132,33 @@
             <hr>
 
             <div class="canvas-wrapper">
+                <legend for="materialsCanvas" class="legend"></legend>
                 <canvas id="materialsCanvas" class="canvas"></canvas>
-            </div>
-            <div class="data-wrapper">
-                <div class="filter">
-                    <div>
-                        <div id="prev" class="btn" onclick="prevYear()" style="background-color: #c0c0c0">-</div>
-                        <div id="year"></div>
-                        <div id="next" class="btn" onclick="nextYear()" style="background-color: #c0c0c0">+</div>
-                    </div>
-                    <div>
-                        <label>Esito operazioni:</label>
-                        <form>
-                            <div>
-                                <input id="succ" type="checkbox" name="successo" value="successo" checked="checked" onclick="succClicked()" />Successo
-                            </div>
-                            <div>
-                                <input id="complic" type="checkbox" name="complicazioni" value="complicazioni" checked="checked" onclick="complicClicked()"
-                                />Complicazioni
-                            </div>
-                            <div>
-                                <input id="dec" type="checkbox" name="decesso" value="decesso" checked="checked" onclick="decClicked()" />Decesso
-                            </div>
-                        </form>
+                <div>
+                    <div class="filter">
+                        <div class="data-wrapper">
+                            <label>Anno: </label>
+                            <div id="prev" class="btn" onclick="prevYear()" >-</div>
+                            <div id="year"></div>
+                            <div id="next" class="btn" onclick="nextYear()" >+</div>
+                        </div>
+                        <div  class="filter">
+                            <label>Esito operazioni:</label>
+                            <form>
+                                <div class="checkbox">
+                                    <input id="succ" type="checkbox" name="successo" value="successo" checked="checked" onclick="succClicked()" />Successo
+                                </div>
+                                <div class="checkbox">
+                                    <input id="complic" type="checkbox" name="complicazioni" value="complicazioni" checked="checked" onclick="complicClicked()"
+                                    />Complicazioni
+                                </div>
+                                <div class="checkbox">
+                                    <input id="dec" type="checkbox" name="decesso" value="decesso" checked="checked" onclick="decClicked()" />Decesso
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <legend for="materialsCanvas" class="legend"></legend>
             </div>
         </section>
     </main>

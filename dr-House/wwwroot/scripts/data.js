@@ -485,9 +485,12 @@ function nascondi() {
 
 function comparsa(){
     var m = document.getElementById("depUl")
-    m.style.display = "block"
+    m.style.display = "flex"
+    m.style.flexDirection = "column"
+    m.style.alignContent = "center"
+    m.style.padding = "0"
     m.style.position = "absolute"
-    m.style.bottom = "15px"
+    m.style.bottom = "25px"
 }
 
 function chiudi(){
