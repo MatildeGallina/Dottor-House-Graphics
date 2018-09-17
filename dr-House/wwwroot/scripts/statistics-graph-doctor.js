@@ -1,6 +1,6 @@
 var myCanvas = document.getElementById("drCanvas");
 myCanvas.width = 1000;
-myCanvas.height = 400;
+myCanvas.height = 300;
 
 var ctx = myCanvas.getContext("2d");
 

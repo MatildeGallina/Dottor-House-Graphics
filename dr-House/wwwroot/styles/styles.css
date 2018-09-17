@@ -1,17 +1,3 @@
-
-
-
-
-
-
-/* 
-.cover-image{
-    position: absolute;
-    margin-top: 70px;
-} */
-
-
-/********************************************************************/
 header{
     background-image: url(../images/cover.jpg);
     background-size: 100%;
@@ -151,17 +137,22 @@ canvas{
     display: flex;
     flex-direction: row;
     justify-content: left;
-
 }
 
 #materials .canvas-wrapper{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    min-width: 100%;
+
+}
+
+#materials .canvas-wrapper .legend{
+    width: 15%
 }
 
 #materialsCanvas{
-    margin-right: 1em;
+    width: 50%;
 }
 
 .data-wrapper{
@@ -179,7 +170,7 @@ canvas{
     justify-content: stretch;
     border: 5px rgb(90, 100, 110) solid;
     border-radius: 0.5em;
-    padding: 3em;
+    width: 100%
 }
 
 .filter .filter{
