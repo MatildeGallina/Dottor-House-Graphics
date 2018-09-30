@@ -27,8 +27,6 @@ function legendItem(name, color, ul) {
     li.style.borderLeft = "20px solid " + color;
     li.style.padding = "5px";
     li.textContent = name;
-    // ul.append(li);
-    console.log("legendItem")
     return li
 }
 
@@ -43,8 +41,7 @@ var Barchart = function (options) {
 
         var canvasActualHeight = this.canvas.height - this.options.padding * 2;
         var canvasActualWidth = this.canvas.width - this.options.padding * 2;
-
-        //drawing the grid lines
+        
         var gridValue = 0;
         while (gridValue <= maxValue) {
             let gridY = canvasActualHeight * (1 - gridValue / maxValue) + this.options.padding;
@@ -58,7 +55,6 @@ var Barchart = function (options) {
                 this.options.gridColor
             );
 
-            //writing grid markers
             this.ctx.save();
             this.ctx.fillStyle = this.options.gridColor;
             this.ctx.font = "15px Arial";
@@ -79,8 +75,7 @@ var Barchart = function (options) {
                 doctors[index].operations.push(operation)
             }
         }
-
-        //drawing the bars
+        
         var collIndex = 0
         var numberOfBars = doctors.length;
         var barSize = (canvasActualWidth - (5 * this.options.padding)) / numberOfBars;
@@ -103,9 +98,6 @@ var Barchart = function (options) {
                     statistics[2] += 1
                 }
             }
-            // for (var o of dr.operations) {
-            //     dr_operations += o
-            // }
 
             let barIndex = 0;
             let startX = 5 * this.options.padding + collIndex * barSize
@@ -121,12 +113,12 @@ var Barchart = function (options) {
                 }
 
                 drawBar(
-                    this.ctx, // contesto
-                    startX, // coordinata x di partenza
-                    startY, // coordinata y di partenza
-                    barSize - this.options.padding,//this.options.padding, //width
-                    barHeight, // height
-                    this.colors[barIndex % this.colors.length] //colore barra
+                    this.ctx,
+                    startX,
+                    startY,
+                    barSize - this.options.padding,
+                    barHeight,
+                    this.colors[barIndex % this.colors.length]
                 )
 
                 barIndex++;
@@ -134,29 +126,18 @@ var Barchart = function (options) {
 
 
             let p = document.createElement("p");
-            // p.style.display = "inline-block"
-            // p.style.transform = "rotate(90deg)"
-            // p.style.fontSize = "14px";
             p.textContent = dr.name;
             p.style.padding = "0";
             div.appendChild(p);
             
-            // var labelText = dr.name;
-            // this.ctx.fillStyle = "black";
-            // this.ctx.font = "bold 20px Arial";
-            // this.ctx.fillText(labelText, startX, (this.canvas.height));
-
             collIndex++;
         }
 
         var legend = document.querySelector("legend[for='drCanvas']");
         var ul = document.createElement("ul");
         legend.append(ul);
-        // legendItem("% Successi", this.colors[0 % this.colors.length], ul)
         ul.append(legendItem("% Success", this.colors[0 % this.colors.length], ul));
-        // legendItem("% Complicazioni", this.colors[1 % this.colors.length], ul)
         ul.append(legendItem("% Complications", this.colors[1 % this.colors.length], ul));
-        // legendItem("% Decessi", this.colors[2 % this.colors.length], ul)
         ul.append(legendItem("% Death", this.colors[2 % this.colors.length], ul));
     }
 }

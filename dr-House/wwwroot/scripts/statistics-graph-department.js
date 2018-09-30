@@ -106,11 +106,6 @@ var Piechart = function(options, department, mainColor, idLegend){
                     if(!validData.includes(operation.doctor)){
                         validData.push(operation.doctor)
                     }
-
-                    // NON MI SERVER INSERIRE LE OPERAZIONI DI NUOVO PERCHè LE HO GIà 
-                    // INSERITE DISEGNANDO IL GRAFICO PRECEDENTE
-                    // let index = validData.indexOf(operation.doctor)
-                    // validData[index].operations.push(operation)
                 }
             }
         }

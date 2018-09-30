@@ -9,7 +9,7 @@ header{
     margin-top: 10rem;
     align-content: center;
     text-align: center;
-    font-family: 'Brush Script Std';
+    font-family: 'Tahoma';
     color: crimson;
     font-size: 8rem;
     background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
@@ -52,15 +52,6 @@ nav a > img{
     margin: 10px auto;
     font-size: 1.2rem;
 }
-
-/* #depUl[display=flex]{
-    flex-direction: column;
-    align-content: center;
-    padding: 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%
-} */
 
 #depUl > li > a{
     color: black;

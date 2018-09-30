@@ -17,21 +17,11 @@ function Operation(doctor, date, result, materials) {
 }
 
 function Materials(
-    // bisturi, forbici, pinze, divaricatore, enterostati, clip, aghi, placche, bypass, chiodi, protesi, anestetico, sedativo
-    scalpel, scissors, forceps, retractor, enterostates, clips, needles, plates, bypass, nails, prosthesis, anesthetic, sedative) {
+    scalpel, scissors, forceps, retractor) {
     this.scalpel = scalpel,
     this.scissors = scissors,
     this.forceps = forceps,
     this.retractor = retractor
-    // this.enterostates = enterostates,
-    // this.clips = clips,
-    // this.needles = needles,
-    // this.plates = plates,
-    // this.bypass = bypass,
-    // this.nails = nails,
-    // this.prosthesis = prosthesis,
-    // this.anesthetic = anesthetic,
-    // this.sedative = sedative
 }
 
 const DEATH = "death"
@@ -370,53 +360,13 @@ var p30 = new Patient("Dottor Cyber", [op81, op82, op91, op110])
 var p31 = new Patient("Nemesis", [op92, op93, op98, op108])
 var p32 = new Patient("Wonder Woman", [op109, op106, op105, op24])
 
-// var doctors = [dr1, dr2, dr3, dr4, dr5, dr6, dr7, dr8, dr9, dr10, 
-        // dr11, dr12, dr13, dr14, dr15, dr16, dr17, dr18, dr19, dr20, 
-        // dr21, dr22, dr23, dr24, dr25, dr26, dr27, dr28, dr29, dr30]
-
-// var oper = [op1, op2, op3, op4, op5, op6, op7, op8, op9, op10, 
-//         op11, op12, op13, op14, op15, op16, op17, op18, op19, op20,
-//         op21, op22, op23, op24, op25, op26, op27, op28, op29, op30, 
-//         op31, op32, op33, op34, op35, op36, op37, op38, op39, op40,
-//         op41, op42, op43, op44, op45, op46, op47, op48, op49, op50, 
-//         op51, op52, op53, op54, op55, op56, op57, op58, op59, op60,
-//         op61, op62, op63, op64, op65, op66, op67, op68, op69, op70, 
-//         op71, op72, op73, op74, op75, op76, op77, op78, op79, op80,
-//         op81, op82, op83, op84, op85, op86, op87, op88, op89, op90, 
-//         op91, op92, op93, op94, op95, op96, op97, op98, op99, op100,
-//         op101, op102, op103, op104, op105, op106, op107, op108, op109, op110, 
-//         op111, op112, op113, op114, op115, op116, op117, op118, op119, op120,
-//         op121, op122, op123, op124, op125, op126, op127, op128, op129]
-
 var patients = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, 
         p11, p12, p13, p14, p15, p16, p17, p18, p19, p20,
         p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32]
 
-// for(let dr of doctors){
-//     for(let o of oper){
-//         if(o.doctor == dr){
-//             dr.operations.push(o)
-//         }
-//     }
-// }
-
-// for (let patient of patients) {
-//     for (let o of patient.operationsList) {
-//         for (let dr of doctors) {
-//             if (o.doctor == dr) {
-//                 dr.operations.push(o)
-//             }
-//         }
-//     }
-// }
-
-
 var d = document.getElementById("doctors")
 var dp = document.getElementById("departments")
 var m = document.getElementById("materials")
-
-
-
 var graphics = [d, dp, m]
 
 var nav_doctors = document.getElementById("nav-doc")
